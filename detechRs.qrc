@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/Final-DETECH-LOGO.png</file>
+    <file>images/login image.jpg</file>
+    <file>images/LOGO-and-TEXT - DETECH.png</file>
+    <file>images/ri_login-circle-fill.png</file>
+  </qresource>
+</RCC>

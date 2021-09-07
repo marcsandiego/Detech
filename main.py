@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
-
+import mysql.connector as mc
 #---Import that will load the UI file---#
 from PyQt5.uic import loadUi
 
@@ -19,8 +19,31 @@ class Login(QMainWindow):
 
     #-- Created a function called "loginFunction" --#
     def loginFunction(self):
+
         lgUserLine=self.lgUserLine.text() #-- Getting the textbox context lgUserline --#
         lgPassLine=self.lgPassLine.text() #-- Getting the textbox context lgPassline --#
+
+        mydb = mc.connect(
+                host = "localhost",
+                root = "root",
+                password = "",
+                database = "detech"
+            )
+
+        mycursor = mydb.cursor()
+        query = "SELECT username, password from users where username like '"+lgUserLine + "'+ and password like '" + lgPassLine + "'"
+        mycursor.execute(query)
+        result = mycursor.fetchone()
+
+        if result == None:
+            self.lgUserLine.setText("Incorrect credentials")
+
+        else:
+            self.lgUserLine.setText("go to homepage")
+
+
+        #except mc.Error as e:
+         #   self.lgUserLine.setText("Error")
 
         #-- Will display at the terminal what you wrote in the textbox(QLineEdit) --#
         print("Success, ", lgUserLine, "and ", lgPassLine)

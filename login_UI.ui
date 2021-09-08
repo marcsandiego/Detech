@@ -272,6 +272,19 @@ border-radius: 20px;</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="labelResult">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>230</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="detechLabel">
     <property name="geometry">

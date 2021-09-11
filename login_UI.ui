@@ -210,7 +210,7 @@ border-radius: 20px;</string>
       <string>Don't have an account?</string>
      </property>
     </widget>
-    <widget class="QLabel" name="registerHereLabel">
+    <widget class="QLabel" name="QLabel">
      <property name="geometry">
       <rect>
        <x>940</x>
@@ -285,6 +285,30 @@ border-radius: 20px;</string>
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="registerButton">
+     <property name="geometry">
+      <rect>
+       <x>934</x>
+       <y>630</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>registerButton</zorder>
+    <zorder>usernameLoginLabel</zorder>
+    <zorder>passLoginLabel</zorder>
+    <zorder>lgUserLine</zorder>
+    <zorder>lgPassLine</zorder>
+    <zorder>loginButton</zorder>
+    <zorder>label</zorder>
+    <zorder>QLabel</zorder>
+    <zorder>lgDetechLogo</zorder>
+    <zorder>label_3</zorder>
+    <zorder>labelResult</zorder>
    </widget>
    <widget class="QLabel" name="detechLabel">
     <property name="geometry">

@@ -26,7 +26,7 @@ class Login(QMainWindow):
         print("Success, ", lgUserLine, "and ", lgPassLine)
 
 
-
+#--- LAUNCHING THE APPLICATION ---#
 app=QApplication(sys.argv)
 loginWindow=Login()
 widget=QtWidgets.QStackedWidget()

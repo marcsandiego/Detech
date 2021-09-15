@@ -38,10 +38,10 @@ class Login(QMainWindow):
         result = mycursor.fetchone()
 
         if result is None:
-            self.labelResult.setText("Incorrect credentials")
+            self.labelResult.setText("Incorrect username and/or password. Please try again.")
 
         else:
-            self.labelResult.setText("go to homepage")
+            loadUi("profile_UI.ui", self)
 
     def registerUi(self):
         loadUi("register_UI.ui", self)

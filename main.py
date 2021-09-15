@@ -142,11 +142,15 @@ class Login(QMainWindow):
             insert = "INSERT INTO users (name, username, email, password, confirm_password) VALUES (%s, %s, %s, %s, %s)"
             value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine, confirmPasswordRegLine)
 
+
             mycursor.execute(insert, value)
             mydb.commit()
             print(" Registration\n", nameRegLine, "\n", usernameRegLine, "\n", emailRegLine, "\n",passwordRegLine, "\n", confirmPasswordRegLine, "\n")
             # go to registerUI function
             self.registerUi()
+
+
+#--- LAUNCHING THE APPLICATION ---#
 
 app=QApplication(sys.argv)
 loginWindow=Login()

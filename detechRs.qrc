@@ -1,5 +1,12 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/titleRectangle.png</file>
+    <file>images/rectangleShape.png</file>
+    <file>images/notificationIcon.png</file>
+    <file>images/dataHistoryIcon.png</file>
+    <file>images/profileIcon.png</file>
+    <file>images/settingIcon.png</file>
+    <file>images/surveillanceIcon.png</file>
     <file>images/Final-DETECH-LOGO.png</file>
     <file>images/login image.jpg</file>
     <file>images/LOGO-and-TEXT - DETECH.png</file>

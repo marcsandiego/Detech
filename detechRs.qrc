@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/plusSign.png</file>
+    <file>images/detectionSetup.png</file>
     <file>images/titleRectangle.png</file>
     <file>images/rectangleShape.png</file>
     <file>images/notificationIcon.png</file>

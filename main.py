@@ -5,8 +5,9 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 import mysql.connector as mc
 #---Import that will load the UI file---#
 from PyQt5.uic import loadUi
+import detechRs_rc
 
-import detechRs_rc #---THIS IMPORT WILL DISPLAY THE IMAGES STORED IN THE QRC FILE AND _rc.py FILE--#
+
 
 #--CLASS CREATED THAT WILL LOAD THE UI FILE
 class Login(QMainWindow):
@@ -14,6 +15,8 @@ class Login(QMainWindow):
         super(Login, self).__init__()
         # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
         loadUi("login_UI.ui",self)
+        self.setFixedWidth(1190)  # -- setting the fixed window size in width --#
+        self.setFixedHeight(782)  # -- setting the fixed window size in height--#
 
         # --- a code once the login button clicked, will call the loginFunction ---#
         self.loginButton.clicked.connect(self.loginFunction)
@@ -40,11 +43,14 @@ class Login(QMainWindow):
         if result is None:
             self.labelResult.setText("Incorrect username and/or password. Please try again.")
 
-        else:
-            loadUi("profile_UI.ui", self)
+        else: #call mainPage function
+            self.mainPage()
+
 
     def registerUi(self):
         loadUi("register_UI.ui", self)
+        self.setFixedWidth(1190)  # -- setting the fixed window size in width --#
+        self.setFixedHeight(782)  # -- setting the fixed window size in height--#
         self.registerButton.clicked.connect(self.registerFunction)
 
     def registerFunction(self):
@@ -137,7 +143,6 @@ class Login(QMainWindow):
 
         #save to database if all conditions are passed!
         if count == 5:
-            print("dito")
             mycursor = mydb.cursor()
             insert = "INSERT INTO users (name, username, email, password, confirm_password) VALUES (%s, %s, %s, %s, %s)"
             value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine, confirmPasswordRegLine)
@@ -150,13 +155,60 @@ class Login(QMainWindow):
             self.registerUi()
 
 
+    #--FUNCTION FOR MAIN PAGE AFTER LOGGING IN
+    def mainPage(self):
+        # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
+        loadUi("mainPage_UI.ui",self)
+        self.setFixedWidth(1596)
+        self.setFixedHeight(882)
+
+        # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
+        self.stackedWidget.setCurrentWidget(self.profile_page)
+
+        # --- CODED BUTTONS IN ABLE TO SELECT A CERTAIN STACKED WIDGET PAGE --- #
+        self.profileButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # Profile button to Profile page
+        self.surveillanceButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page)) # Surveillance Button to Surveillance page
+        self.dataHistoryButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.dataHistory_page)) # Data history button to Data history page
+        self.settingsButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) # settings button to settings page
+
+        #--- PROFILE EDIT PAGE ---#
+        self.editProfile_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.editProfile_page)) # Edit profile button to edit profile page
+        self.editProfileCancel_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # -- CANCEL BUTTON --#
+
+        #--- CHANGE PASSWORD EDIT PAGE --#
+        self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page)) #change password button to change password page
+        self.changePassCancel_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) #-- CANCEL BUTTON --#
+
+        #--- SETTINGS PAGE WIDGETS ---#
+        self.detectionSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.detectionSetup_page)) #detection setup button from settings to detection setup page
+        self.setupCCTV_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.setupCCTV_page)) #setup cctv button from setings to setup cctv page
+
+        #--- DETECTION SETUP PAGE BUTTONS ---#
+        self.dtSetupBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) #-- BACK BUTTON DETECTION SETUP, RETURNS TO SETTINGS PAGE ---#
+        # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
+        self.setupCCTV_widget.setCurrentWidget(self.cctvAvailableConnect_page)
+
+        # --- setupCCTV widgets ---#
+        self.cancelSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) #cancel setup cctv button, returns to setting page
+        self.connectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.connectIP_page)) #connect IP button to connect IP page
+        self.continueConnectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)) # continue to connect ip to cinnection view surveillance sucesss
+        self.checkSurveillance_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page)) #check surveillance button redirect to surveillance.
+        # --- SET THE "ALL CAMERA" PAGE AS A DEFAULT PAGE WHEN SELECTING THE SURVEILLANCE PAGE--- #
+        self.surveillance_frame.setCurrentWidget(self.allCamera_page)
+
+        # --- CODED BUTTONS FOR SURVEILLANCE PAGE --- #
+        self.camera1_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera1_page))
+        self.camera2_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera2_page))
+        self.camera3_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera3_page))
+        self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
+        self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
+
+
 #--- LAUNCHING THE APPLICATION ---#
 
 app=QApplication(sys.argv)
 loginWindow=Login()
 widget=QtWidgets.QStackedWidget()
 widget.addWidget(loginWindow) #-- displays all design widgets of the UI Window --#
-widget.setFixedWidth(1190) #-- setting the fixed window size in width --#
-widget.setFixedHeight(782) #-- setting the fixed window size in height--#
 widget.show()
 app.exec_() #-- window execution --#

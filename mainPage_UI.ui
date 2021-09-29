@@ -180,12 +180,12 @@
        <string>(username)</string>
       </property>
      </widget>
-     <widget class="QLabel" name="timeDisplay_label">
+     <widget class="QLabel" name="dateDisplay_label">
       <property name="geometry">
        <rect>
-        <x>780</x>
+        <x>820</x>
         <y>10</y>
-        <width>171</width>
+        <width>161</width>
         <height>31</height>
        </rect>
       </property>
@@ -202,12 +202,12 @@
        <string>(Time label)</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="timeDisplay_label">
       <property name="geometry">
        <rect>
-        <x>810</x>
-        <y>50</y>
-        <width>141</width>
+        <x>850</x>
+        <y>40</y>
+        <width>121</width>
         <height>31</height>
        </rect>
       </property>
@@ -250,7 +250,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -275,8 +275,8 @@
        <widget class="QFrame" name="frame_2">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>50</y>
+          <x>70</x>
+          <y>40</y>
           <width>581</width>
           <height>551</height>
          </rect>
@@ -301,22 +301,6 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QLabel" name="nameOwner_label">
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>User Name</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QLabel" name="nameStore_label">
             <property name="font">
              <font>
@@ -329,6 +313,22 @@
             </property>
             <property name="text">
              <string>Name of the store</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="typeStore_label">
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Type of store</string>
             </property>
            </widget>
           </item>
@@ -434,7 +434,7 @@
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>N/A</string>
             </property>
            </widget>
           </item>
@@ -444,7 +444,7 @@
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>N/A</string>
             </property>
            </widget>
           </item>
@@ -454,7 +454,7 @@
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>N/A</string>
             </property>
            </widget>
           </item>
@@ -464,37 +464,12 @@
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>N/A</string>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
-       </widget>
-       <widget class="QPushButton" name="editProfile_button">
-        <property name="geometry">
-         <rect>
-          <x>870</x>
-          <y>50</y>
-          <width>31</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(45, 158, 236);</string>
-        </property>
-        <property name="text">
-         <string>Edit</string>
-        </property>
        </widget>
        <widget class="QPushButton" name="changePass_button">
         <property name="geometry">
@@ -519,6 +494,31 @@ color: rgb(45, 158, 236);</string>
         </property>
         <property name="text">
          <string>Change Password</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editProfile_button">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>50</y>
+          <width>519</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(45, 158, 236);</string>
+        </property>
+        <property name="text">
+         <string>Edit</string>
         </property>
        </widget>
       </widget>
@@ -546,264 +546,6 @@ color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Edit Profile:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editNameOwner_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>150</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editStoreName_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>230</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editAddress_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>310</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editUsername_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>550</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editCountry_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>390</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editCity_lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>470</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
         </property>
        </widget>
        <widget class="QPushButton" name="saveChanges_button">
@@ -882,16 +624,334 @@ border-radius: 20px;</string>
          </size>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QLineEdit" name="editUsername">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>140</y>
-          <width>251</width>
-          <height>481</height>
+          <x>480</x>
+          <y>143</y>
+          <width>301</width>
+          <height>41</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_10">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editOwner">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>210</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editeStore">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>280</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editType">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>350</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editAddress">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>410</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editCity">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>470</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="EditCountry">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>540</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+        </property>
+        <property name="inputMask">
+         <string notr="true"/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>140</y>
+          <width>183</width>
+          <height>451</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_33">
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QLabel" name="label_35">
            <property name="font">
@@ -927,6 +987,23 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
+          <widget class="QLabel" name="label_40">
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Type of Store:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="label_36">
            <property name="font">
             <font>
@@ -940,23 +1017,6 @@ color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
             <string>Address:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_46">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Country:</string>
            </property>
           </widget>
          </item>
@@ -978,7 +1038,7 @@ color: rgb(255, 255, 255);</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_33">
+          <widget class="QLabel" name="label_46">
            <property name="font">
             <font>
              <family>Roboto</family>
@@ -990,11 +1050,24 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
-            <string>Username:</string>
+            <string>Country:</string>
            </property>
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QLabel" name="editUsernameLabel">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>120</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="changePass_page">
@@ -1060,7 +1133,7 @@ QLineEdit:focus{
          <enum>QLineEdit::Normal</enum>
         </property>
        </widget>
-       <widget class="QLineEdit" name="newPass_lineedit">
+       <widget class="QLineEdit" name="newPass_lineEdit">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -1248,6 +1321,22 @@ color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Change Password:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="oldPassLabel">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>240</y>
+          <width>191</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>dito yung label</string>
         </property>
        </widget>
       </widget>
@@ -1745,7 +1834,8 @@ background-color:None;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/images/titleRectangle.png)</string>
+         <string notr="true">border-image:url(:/images/images/titleRectangle.png)
+rgb(255, 170, 127)</string>
         </property>
         <property name="text">
          <string/>
@@ -1937,6 +2027,17 @@ background-color:None;
          <string>Data History Settings</string>
         </property>
        </widget>
+       <zorder>logoutAccount_button</zorder>
+       <zorder>detectionSetup_button</zorder>
+       <zorder>detectionSetup_label_2</zorder>
+       <zorder>setupCCTV_button</zorder>
+       <zorder>dataHistorySetting_button</zorder>
+       <zorder>logoutAccount_label</zorder>
+       <zorder>detectionSetup_label</zorder>
+       <zorder>setupCCTV_label_2</zorder>
+       <zorder>setupCCTV_label</zorder>
+       <zorder>dataHistorySettings_label_2</zorder>
+       <zorder>dataHistorySettings_label</zorder>
       </widget>
       <widget class="QWidget" name="detectionSetup_page">
        <widget class="QLabel" name="label_11">
@@ -2389,7 +2490,7 @@ background-color:None;
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="cctvAvailableConnect_page">
          <widget class="QLabel" name="label_15">
@@ -3151,6 +3252,7 @@ QPushButton{
  </widget>
  <resources>
   <include location="detechRs.qrc"/>
+  <include location="../../.designer/backup/detechRs.qrc"/>
  </resources>
  <connections/>
 </ui>

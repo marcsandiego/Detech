@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14edd5f5-8060-4ebd-ae55-b9f586d28532" name="Changes" comment="" />
+    <list default="true" id="14edd5f5-8060-4ebd-ae55-b9f586d28532" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +90,7 @@
       <updated>1630761609544</updated>
       <workItem from="1630761612141" duration="2002000" />
       <workItem from="1631178492908" duration="965000" />
+      <workItem from="1633003890835" duration="135000" />
     </task>
     <task id="LOCAL-00001" summary="printttt">
       <created>1630762123894</created>

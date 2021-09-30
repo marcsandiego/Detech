@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1596</width>
-    <height>882</height>
+    <height>879</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -183,9 +183,9 @@
      <widget class="QLabel" name="dateDisplay_label">
       <property name="geometry">
        <rect>
-        <x>820</x>
+        <x>800</x>
         <y>10</y>
-        <width>161</width>
+        <width>181</width>
         <height>31</height>
        </rect>
       </property>
@@ -205,9 +205,9 @@
      <widget class="QLabel" name="timeDisplay_label">
       <property name="geometry">
        <rect>
-        <x>850</x>
+        <x>830</x>
         <y>40</y>
-        <width>121</width>
+        <width>141</width>
         <height>31</height>
        </rect>
       </property>
@@ -246,11 +246,11 @@
         <x>0</x>
         <y>0</y>
         <width>981</width>
-        <height>701</height>
+        <height>801</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -430,6 +430,14 @@
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QLabel" name="nameDisplay_label">
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
@@ -440,6 +448,14 @@
           </item>
           <item>
            <widget class="QLabel" name="storeAddDisplay_label">
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
@@ -450,6 +466,14 @@
           </item>
           <item>
            <widget class="QLabel" name="cityDisplay_label">
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
@@ -460,6 +484,14 @@
           </item>
           <item>
            <widget class="QLabel" name="countryDisplay_label">
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
@@ -499,9 +531,9 @@ color: rgb(45, 158, 236);</string>
        <widget class="QPushButton" name="editProfile_button">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>870</x>
           <y>50</y>
-          <width>519</width>
+          <width>31</width>
           <height>24</height>
          </rect>
         </property>
@@ -523,19 +555,35 @@ color: rgb(45, 158, 236);</string>
        </widget>
       </widget>
       <widget class="QWidget" name="editProfile_page">
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>981</width>
+          <height>141</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="detechRs.qrc">:/images/images/titleRectangle.png</pixmap>
+        </property>
+       </widget>
        <widget class="QLabel" name="label_32">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>90</y>
-          <width>181</width>
-          <height>61</height>
+          <x>40</x>
+          <y>30</y>
+          <width>481</width>
+          <height>41</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>20</pointsize>
+          <pointsize>25</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -545,52 +593,1591 @@ color: rgb(45, 158, 236);</string>
 color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
-         <string>Edit Profile:</string>
+         <string>Edit Account Information</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="saveChanges_button">
+       <widget class="QStackedWidget" name="editProfileWidget">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>630</y>
-          <width>311</width>
-          <height>51</height>
+          <x>510</x>
+          <y>150</y>
+          <width>471</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>4</number>
+        </property>
+        <widget class="QWidget" name="editUser_page">
+         <widget class="QLabel" name="label_41">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editUsername">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_33">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>201</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change Username:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveUsername_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save Username</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currUsernameLabel">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>100</y>
+            <width>161</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_22">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>151</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current Username:</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="editNameOwner_page">
+         <widget class="QLabel" name="label_42">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveOwner_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save Owner's Name</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editOwner">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_43">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change Name of the Owner:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currentNameOwnerLabel">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>100</y>
+            <width>221</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text Label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_20">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>221</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current Name of the Owner:</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="editStoreName_page">
+         <widget class="QLabel" name="label_45">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editStoreName">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_44">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change Store Name:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveStoreName_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save Store Name</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currStoreNameLabel">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>100</y>
+            <width>161</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text Label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_23">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>161</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current Store Name:</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="editStoreType_page">
+         <widget class="QLabel" name="label_50">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editStoreType">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_51">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change Type of Store:</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveStoreType_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save Store Type</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currStoreTypeLabel">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>100</y>
+            <width>161</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_24">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>171</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current Type of Store:</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="editAddress_page">
+         <widget class="QLabel" name="label_52">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editAddress">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveAddress_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save Store Address</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_53">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change Address:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currAddressLabel">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>100</y>
+            <width>301</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_28">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>131</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current Address:</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="editCity_page">
+         <widget class="QLabel" name="label_55">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_54">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change City:</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editCity">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveCity_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save City</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currCityLabel">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>100</y>
+            <width>181</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_29">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current City:</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="editCountry_page">
+         <widget class="QLabel" name="label_56">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>140</y>
+            <width>471</width>
+            <height>281</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="detechRs.qrc">:/images/images/rectangleShape.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_57">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>271</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Change Country:</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="editCountry">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>240</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>-1</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+font: 15px &quot;Roboto&quot;;
+border: 2px solid rgb(121, 121, 121);
+color:rgb(255, 255, 255);
+background-color: rgba(19, 24, 42, 1);
+border-radius: 8px;
+padding-left: 15px;
+}
+
+QLineEdit:hover{
+	border: 2px solid white;
+}
+
+QLineEdit:focus{
+	border: 2px solid white;
+}</string>
+          </property>
+          <property name="inputMask">
+           <string notr="true"/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="saveCountry_button">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>300</y>
+            <width>311</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+
+border-radius: 15px;</string>
+          </property>
+          <property name="text">
+           <string>Save Country</string>
+          </property>
+          <property name="icon">
+           <iconset resource="detechRs.qrc">
+            <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>100</y>
+            <width>131</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Current Country:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="currCountryLabel">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>100</y>
+            <width>161</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(45, 158, 236)</string>
+          </property>
+          <property name="text">
+           <string>Text label</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>483</x>
+          <y>160</y>
+          <width>20</width>
+          <height>541</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_65">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>80</y>
+          <width>481</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
           <weight>50</weight>
-          <italic>false</italic>
           <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
-color: white;
-
-border-radius: 15px;</string>
+         <string notr="true">background-color: rgb(0,0,0,0%);
+color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
-         <string>Save Changes</string>
+         <string>Change account information, username, name, store and etc.</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editUser_button">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>150</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        Username</string>
         </property>
         <property name="icon">
          <iconset resource="detechRs.qrc">
-          <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>30</width>
-          <height>30</height>
+          <width>25</width>
+          <height>25</height>
          </size>
         </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
        </widget>
-       <widget class="QPushButton" name="editProfileCancel_button">
+       <widget class="QPushButton" name="editNameOwner_button">
         <property name="geometry">
          <rect>
-          <x>770</x>
-          <y>40</y>
+          <x>0</x>
+          <y>230</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        Name of the Owner</string>
+        </property>
+        <property name="icon">
+         <iconset resource="detechRs.qrc">
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editStoreName_button">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>320</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        Store Name</string>
+        </property>
+        <property name="icon">
+         <iconset resource="detechRs.qrc">
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editStoreType_button">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>400</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        Type of Store</string>
+        </property>
+        <property name="icon">
+         <iconset resource="detechRs.qrc">
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editAddress_button">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>480</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        Address</string>
+        </property>
+        <property name="icon">
+         <iconset resource="detechRs.qrc">
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editCity_button">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>560</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        City</string>
+        </property>
+        <property name="icon">
+         <iconset resource="detechRs.qrc">
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editCountry_button">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>640</y>
+          <width>491</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}
+</string>
+        </property>
+        <property name="text">
+         <string>                        Country</string>
+        </property>
+        <property name="icon">
+         <iconset resource="detechRs.qrc">
+          <normaloff>:/images/images/rightArrowWhite.png</normaloff>:/images/images/rightArrowWhite.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editProfileBack_button">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>650</y>
           <width>161</width>
           <height>51</height>
          </rect>
@@ -611,7 +2198,7 @@ color: white;
 border-radius: 20px;</string>
         </property>
         <property name="text">
-         <string>Cancel</string>
+         <string>Back</string>
         </property>
         <property name="icon">
          <iconset resource="detechRs.qrc">
@@ -624,449 +2211,17 @@ border-radius: 20px;</string>
          </size>
         </property>
        </widget>
-       <widget class="QLineEdit" name="editUsername">
+       <widget class="QLabel" name="label_19">
         <property name="geometry">
          <rect>
-          <x>480</x>
-          <y>143</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editOwner">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>210</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editeStore">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>280</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editType">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>350</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editAddress">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>410</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="editCity">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>470</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="EditCountry">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>540</y>
-          <width>301</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-font: 15px &quot;Roboto&quot;;
-border: 2px solid rgb(121, 121, 121);
-color:rgb(255, 255, 255);
-background-color: rgba(19, 24, 42, 1);
-border-radius: 8px;
-padding-left: 15px;
-}
-
-QLineEdit:hover{
-	border: 2px solid white;
-}
-
-QLineEdit:focus{
-	border: 2px solid white;
-}</string>
-        </property>
-        <property name="inputMask">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-        </property>
-       </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>140</y>
-          <width>183</width>
-          <height>451</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_33">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Username:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_35">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Name of the Owner:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_34">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Store Name:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_40">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Type of Store:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_36">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Address:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_39">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>City:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_46">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0,0,0,0%);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string>Country:</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QLabel" name="editUsernameLabel">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>120</y>
-          <width>151</width>
-          <height>16</height>
+          <x>620</x>
+          <y>590</y>
+          <width>271</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
         </property>
        </widget>
       </widget>
@@ -1074,8 +2229,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_31">
         <property name="geometry">
          <rect>
-          <x>140</x>
-          <y>180</y>
+          <x>160</x>
+          <y>130</y>
           <width>631</width>
           <height>411</height>
          </rect>
@@ -1093,8 +2248,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLineEdit" name="oldPass_lineEdit">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>290</y>
+          <x>430</x>
+          <y>240</y>
           <width>311</width>
           <height>41</height>
          </rect>
@@ -1136,8 +2291,8 @@ QLineEdit:focus{
        <widget class="QLineEdit" name="newPass_lineEdit">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>360</y>
+          <x>430</x>
+          <y>310</y>
           <width>311</width>
           <height>41</height>
          </rect>
@@ -1179,8 +2334,8 @@ QLineEdit:focus{
        <widget class="QPushButton" name="changePassCancel_button">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>450</y>
+          <x>320</x>
+          <y>400</y>
           <width>161</width>
           <height>51</height>
          </rect>
@@ -1217,8 +2372,8 @@ border-radius: 20px;</string>
        <widget class="QPushButton" name="savePass_button">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>450</y>
+          <x>520</x>
+          <y>400</y>
           <width>161</width>
           <height>51</height>
          </rect>
@@ -1255,8 +2410,8 @@ border-radius: 20px;</string>
        <widget class="QLabel" name="label_48">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>300</y>
+          <x>250</x>
+          <y>250</y>
           <width>128</width>
           <height>24</height>
          </rect>
@@ -1278,8 +2433,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_49">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>370</y>
+          <x>250</x>
+          <y>320</y>
           <width>137</width>
           <height>24</height>
          </rect>
@@ -1301,8 +2456,8 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="label_47">
         <property name="geometry">
          <rect>
-          <x>190</x>
-          <y>210</y>
+          <x>210</x>
+          <y>160</y>
           <width>301</width>
           <height>61</height>
          </rect>
@@ -1326,17 +2481,29 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="oldPassLabel">
         <property name="geometry">
          <rect>
-          <x>470</x>
-          <y>240</y>
-          <width>191</width>
-          <height>31</height>
+          <x>510</x>
+          <y>200</y>
+          <width>231</width>
+          <height>21</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(170, 0, 0);</string>
+         <string notr="true">color: rgb(170, 0, 0);
+background-color: none;</string>
         </property>
         <property name="text">
-         <string>dito yung label</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;dito yung label&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>
@@ -2258,22 +3425,27 @@ background-color:None;
         <property name="geometry">
          <rect>
           <x>480</x>
-          <y>540</y>
-          <width>311</width>
-          <height>31</height>
+          <y>550</y>
+          <width>261</width>
+          <height>21</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QLabel
 {
 color: white;
-font: 16px &quot;Roboto&quot;;
 background-color:None;
 
 }</string>
         </property>
         <property name="text">
-         <string>The system will only detects people wearing </string>
+         <string>The system will only detects people wearing:</string>
         </property>
        </widget>
        <widget class="QRadioButton" name="facemaskFaceshield_radioButton">
@@ -2309,22 +3481,27 @@ QRadioButton:unchecked {
        <widget class="QLabel" name="detectionChoice_label">
         <property name="geometry">
          <rect>
-          <x>800</x>
-          <y>540</y>
-          <width>121</width>
-          <height>31</height>
+          <x>750</x>
+          <y>550</y>
+          <width>161</width>
+          <height>21</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QLabel
 {
-font: 16px &quot;Roboto&quot;;
-	color: rgb(45, 158, 236);
+color: rgb(45, 158, 236);
 background-color:None;
 }</string>
         </property>
         <property name="text">
-         <string>[choice of user]</string>
+         <string>[users choice]</string>
         </property>
        </widget>
        <widget class="QRadioButton" name="faceMaskOnly_radioButton">
@@ -3252,7 +4429,6 @@ QPushButton{
  </widget>
  <resources>
   <include location="detechRs.qrc"/>
-  <include location="../../.designer/backup/detechRs.qrc"/>
  </resources>
  <connections/>
 </ui>

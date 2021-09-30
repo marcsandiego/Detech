@@ -204,9 +204,17 @@ class mainPage(QMainWindow):
 
         #--- PROFILE EDIT PAGE ---#
         self.editProfile_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.editProfile_page)) # Edit profile button to edit profile page
-        self.editProfileCancel_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # -- CANCEL BUTTON --#
+        self.editProfileBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # -- CANCEL BUTTON --#
 
+        #--- PROFILE EDIT STACKED WIDGETS ---#
 
+        self.editUser_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editUser_page))
+        self.editNameOwner_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editNameOwner_page))
+        self.editStoreName_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editStoreName_page))
+        self.editStoreType_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editStoreType_page))
+        self.editAddress_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editAddress_page))
+        self.editCity_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editCity_page))
+        self.editCountry_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editCountry_page))
 
 
         #--- CHANGE PASSWORD EDIT PAGE --#
@@ -271,7 +279,7 @@ class mainPage(QMainWindow):
 
         self.savePass_button.clicked.connect(self.changePassword)
         self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
-        self.saveChanges_button.clicked.connect(self.editProfile)
+        #self.saveChanges_button.clicked.connect(self.editProfile)
 
 
     '''
@@ -286,37 +294,31 @@ class mainPage(QMainWindow):
         #editCity = self.editCity.text()
         #EditCountry = self.EditCountry.text()
         count = 0
-
         mydb = mc.connect(
             host="localhost",
             user="root",
             password="",
             database="detech"
         )
-
         if editUsername == "":
             mycursor = mydb.cursor()
             query = "SELECT * FROM users WHERE '" + username1 + "' LIKE username"
             mycursor.execute(query)
             result = mycursor.fetchall()
-
             for row in result:
                 self.editUsername.setText(row[1])
                 count += 1
             print(editUsername)
-
         else:
             mycursor = mydb.cursor()
             query = "SELECT * FROM users WHERE '" + editUsername + "' LIKE username"
             mycursor.execute(query)
             result = mycursor.fetchone()
-
             if result is not None:
                 self.editUsernameLabel.setText("Username is already in use!")
             else:
                 self.userDisplayLabel.setText(editUsername)
                 count += 1
-
         if count == 1:
             mycursor = mydb.cursor()
             query = "UPDATE users SET username = %s  WHERE username = %s"

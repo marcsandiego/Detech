@@ -93,7 +93,6 @@ class Login(QMainWindow):
 
         #goods, checks if blank only
         if nameRegLine == "":
-            #box
             self.labelNameError.setText("Name cannot be blank!")
         else:
             self.labelNameError.setText("")
@@ -171,8 +170,7 @@ class Login(QMainWindow):
             value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine, confirmPasswordRegLine)
             mycursor.execute(insert, value)
             mydb.commit()
-            print(" Registration\n", nameRegLine, "\n", usernameRegLine, "\n", emailRegLine, "\n",passwordRegLine, "\n", confirmPasswordRegLine, "\n")
-            # go to login function - should call the class woo
+            # go to login function - should call the login class
 
 
     def passingInformation(self):
@@ -363,13 +361,14 @@ class mainPage(QMainWindow):
                 self.oldPassLabel.setText("Incorrect old password")
 
         if newPass == "":
-            self.oldPassLabel.setText("Input password")
+            self.newPassLabel.setText("Input password")
         else:
+            self.newPassLabel.setText("")
             if len(newPass) < 8:
-                self.oldPassLabel.setText("New password must be at least 8!")
+                self.newPassLabel.setText("New password must be at least 8 characters!")
             else:
                 if str.isalpha(newPass):
-                    self.oldPassLabel.setText("New password must have at least one integer!")
+                    self.newPassLabel.setText("New password must have at least one integer!")
                 else:
                     count += 1
 

@@ -250,7 +250,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -2481,9 +2481,9 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="oldPassLabel">
         <property name="geometry">
          <rect>
-          <x>510</x>
-          <y>200</y>
-          <width>231</width>
+          <x>410</x>
+          <y>280</y>
+          <width>161</width>
           <height>21</height>
          </rect>
         </property>
@@ -2504,6 +2504,19 @@ background-color: none;</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;dito yung label&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="newPassLabel">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>360</y>
+          <width>131</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>

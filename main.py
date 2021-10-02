@@ -215,10 +215,6 @@ class mainPage(QMainWindow):
         self.editCountry_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editCountry_page))
 
 
-        #--- CHANGE PASSWORD EDIT PAGE --#
-        #self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page)) #change password button to change password page
-        #self.changePassCancel_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) #-- CANCEL BUTTON --#
-
         #--- SETTINGS PAGE WIDGETS ---#
         self.detectionSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.detectionSetup_page)) #detection setup button from settings to detection setup page
         self.setupCCTV_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.setupCCTV_page)) #setup cctv button from setings to setup cctv page
@@ -254,6 +250,8 @@ class mainPage(QMainWindow):
     def displayProfile(self):
         # Display profile
         username1 = self.userDisplayLabel.text()
+        self.editUsername.setText(username1)
+        self.editUserLabel.setText("")
 
         mydb = mc.connect(
             host="localhost",
@@ -275,22 +273,15 @@ class mainPage(QMainWindow):
             self.cityDisplay_label.setText(row[8])
             self.countryDisplay_label.setText(row[9])
 
+        self.saveUsername_button.clicked.connect(self.changeUsername)
         self.savePass_button.clicked.connect(self.changePassword)
         self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
-        #self.saveChanges_button.clicked.connect(self.editProfile)
 
 
-    '''
-    #edit profile = recreate like change password
-    def editProfile(self):
+
+    def changeUsername(self):
         username1 = self.userDisplayLabel.text()
         editUsername = self.editUsername.text()
-        #editOwner = self.editOwner.text()
-        #editStore = self.editStore.text()
-        #editType = self.editType.text()
-        #editAddress = self.editAddress.text()
-        #editCity = self.editCity.text()
-        #EditCountry = self.EditCountry.text()
         count = 0
         mydb = mc.connect(
             host="localhost",
@@ -298,37 +289,31 @@ class mainPage(QMainWindow):
             password="",
             database="detech"
         )
+
         if editUsername == "":
-            mycursor = mydb.cursor()
-            query = "SELECT * FROM users WHERE '" + username1 + "' LIKE username"
-            mycursor.execute(query)
-            result = mycursor.fetchall()
-            for row in result:
-                self.editUsername.setText(row[1])
-                count += 1
-            print(editUsername)
+            self.editUserLabel.setText("Please input a username") #to change
         else:
+            self.editUserLabel.setText("")
             mycursor = mydb.cursor()
             query = "SELECT * FROM users WHERE '" + editUsername + "' LIKE username"
             mycursor.execute(query)
             result = mycursor.fetchone()
             if result is not None:
-                self.editUsernameLabel.setText("Username is already in use!")
+                self.editUserLabel.setText("Username is already in use!")
             else:
+                self.editUserLabel.setText("")
                 self.userDisplayLabel.setText(editUsername)
                 count += 1
+
         if count == 1:
+            self.editUserLabel.setText("")
             mycursor = mydb.cursor()
             query = "UPDATE users SET username = %s  WHERE username = %s"
             value = (editUsername, username1)
             mycursor.execute(query, value)
             mydb.commit()
-            #self.editUsernameLabel.setText("")
-            self.saveChanges_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page))
+            self.stackedWidget.setCurrentWidget(self.profile_page)
             self.displayProfile()
-        '''
-
-
 
 
     def changePassword(self):
@@ -379,6 +364,7 @@ class mainPage(QMainWindow):
             mycursor.execute(query, value)
             mydb.commit()
             self.oldPassLabel.setText("")
+            self.newPassLabel.setText("")
             self.stackedWidget.setCurrentWidget(self.profile_page)
             self.displayProfile()
 

@@ -163,7 +163,7 @@
        <rect>
         <x>270</x>
         <y>0</y>
-        <width>261</width>
+        <width>391</width>
         <height>81</height>
        </rect>
       </property>
@@ -250,7 +250,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -606,7 +606,7 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>4</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="editUser_page">
          <widget class="QLabel" name="label_41">
@@ -2211,7 +2211,7 @@ border-radius: 20px;</string>
          </size>
         </property>
        </widget>
-       <widget class="QLabel" name="label_19">
+       <widget class="QLabel" name="editUserLabel">
         <property name="geometry">
          <rect>
           <x>620</x>

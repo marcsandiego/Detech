@@ -272,10 +272,23 @@ class mainPage(QMainWindow):
             self.storeAddDisplay_label.setText(row[7])
             self.cityDisplay_label.setText(row[8])
             self.countryDisplay_label.setText(row[9])
+            self.editOwner.setText(row[0])
+            self.editStoreName.setText(row[5])
+            self.editStoreType.setText(row[6])
+            self.editAddress.setText(row[7])
+            self.editCity.setText(row[8])
+            self.editCountry.setText(row[9])
 
+        #buttons for change - to commit changes in credentials
         self.saveUsername_button.clicked.connect(self.changeUsername)
         self.savePass_button.clicked.connect(self.changePassword)
-        self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
+        self.saveOwner_button.clicked.connect(self.changeOwnername)
+        self.saveStoreName_button.clicked.connect(self.changeStorename)
+        self.saveStoreType_button.clicked.connect(self.changeStoretype)
+        self.saveAddress_button.clicked.connect(self.changeAddress)
+        self.saveAddress_button.clicked.connect(self.changeCity)
+        self.saveCity_button.clicked.connect(self.changeCountry)
+        self.saveCountry_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
 
 
 
@@ -315,6 +328,143 @@ class mainPage(QMainWindow):
             self.stackedWidget.setCurrentWidget(self.profile_page)
             self.displayProfile()
 
+    def changeOwnername(self):
+        username1 = self.userDisplayLabel.text()
+        editOwnername = self.editOwner.text()
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if editOwnername == "":
+            self.editOwnerLabel.setText("Please input your name")
+        else:
+            self.editOwnerLabel.setText("")
+            mycursor = mydb.cursor()
+            query = "UPDATE users SET name = %s  WHERE username = %s"
+            value = (editOwnername, username1)
+            mycursor.execute(query, value)
+            mydb.commit()
+            self.stackedWidget.setCurrentWidget(self.profile_page)
+            self.displayProfile()
+
+    def changeStorename(self):
+        username1 = self.userDisplayLabel.text()
+        editStorename = self.editStoreName.text()
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if editStorename == "":
+            self.editStoreLabel.setText("Please input the store name")
+        else:
+            self.editStoreLabel.setText("")
+            mycursor = mydb.cursor()
+            query = "UPDATE users SET store_name = %s  WHERE username = %s"
+            value = (editStorename, username1)
+            mycursor.execute(query, value)
+            mydb.commit()
+            self.stackedWidget.setCurrentWidget(self.profile_page)
+            self.displayProfile()
+
+    def changeStoretype(self):
+        username1 = self.userDisplayLabel.text()
+        editStoretype = self.editStoreType.text()
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if editStoretype == "":
+            self.editTypeStoreLabel.setText("Please input the store type")
+        else:
+            self.editTypeStoreLabel.setText("")
+            mycursor = mydb.cursor()
+            query = "UPDATE users SET store_type = %s  WHERE username = %s"
+            value = (editStoretype, username1)
+            mycursor.execute(query, value)
+            mydb.commit()
+            self.stackedWidget.setCurrentWidget(self.profile_page)
+            self.displayProfile()
+
+    def changeAddress(self):
+        username1 = self.userDisplayLabel.text()
+        editAddress = self.editAddress.text()
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if editAddress == "":
+            self.editAddressLabel.setText("Please input the store address")
+        else:
+            self.editAddressLabel.setText("")
+            mycursor = mydb.cursor()
+            query = "UPDATE users SET address = %s  WHERE username = %s"
+            value = (editAddress, username1)
+            mycursor.execute(query, value)
+            mydb.commit()
+            self.stackedWidget.setCurrentWidget(self.profile_page)
+            self.displayProfile()
+
+    def changeCity(self):
+        username1 = self.userDisplayLabel.text()
+        editCity = self.editCity.text()
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if editCity == "":
+            self.editCityLabel.setText("Please input city")
+        else:
+            self.editCityLabel.setText("")
+            mycursor = mydb.cursor()
+            query = "UPDATE users SET city = %s  WHERE username = %s"
+            value = (editCity, username1)
+            mycursor.execute(query, value)
+            mydb.commit()
+            self.stackedWidget.setCurrentWidget(self.profile_page)
+            self.displayProfile()
+
+    def changeCountry(self):
+        username1 = self.userDisplayLabel.text()
+        editCountry = self.editCountry.text()
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if editCountry == "":
+            self.editCountryLabel.setText("Please input country")
+        else:
+            self.editCountryLabel.setText("")
+            mycursor = mydb.cursor()
+            query = "UPDATE users SET country = %s  WHERE username = %s"
+            value = (editCountry, username1)
+            mycursor.execute(query, value)
+            mydb.commit()
+            self.stackedWidget.setCurrentWidget(self.profile_page)
+            self.displayProfile()
 
     def changePassword(self):
         self.changePassCancel_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page))

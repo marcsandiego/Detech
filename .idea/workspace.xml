@@ -98,7 +98,12 @@
       <workItem from="1630761612141" duration="2002000" />
       <workItem from="1631178492908" duration="965000" />
       <workItem from="1633003890835" duration="1553000" />
-      <workItem from="1633162022790" duration="5218000" />
+      <workItem from="1633162022790" duration="5655000" />
+      <workItem from="1633169463961" duration="544000" />
+      <workItem from="1633170321316" duration="272000" />
+      <workItem from="1633173012554" duration="115000" />
+      <workItem from="1633344728693" duration="1332000" />
+      <workItem from="1633439755218" duration="2270000" />
     </task>
     <task id="LOCAL-00001" summary="printttt">
       <created>1630762123894</created>
@@ -134,4 +139,5 @@
     <MESSAGE value="accountRegistration" />
     <option name="LAST_COMMIT_MESSAGE" value="accountRegistration" />
   </component>
+
 </project>

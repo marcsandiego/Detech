@@ -602,11 +602,11 @@ color: rgb(255, 255, 255);</string>
           <x>510</x>
           <y>150</y>
           <width>471</width>
-          <height>421</height>
+          <height>471</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="editUser_page">
          <widget class="QLabel" name="label_41">
@@ -774,6 +774,19 @@ border-radius: 15px;</string>
           </property>
           <property name="text">
            <string>Current Username:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="editUserLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
           </property>
          </widget>
         </widget>
@@ -945,6 +958,19 @@ color: rgb(255, 255, 255);</string>
            <string>Current Name of the Owner:</string>
           </property>
          </widget>
+         <widget class="QLabel" name="editOwnerLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="editStoreName_page">
          <widget class="QLabel" name="label_45">
@@ -1112,6 +1138,19 @@ border-radius: 15px;</string>
           </property>
           <property name="text">
            <string>Current Store Name:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="editStoreLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
           </property>
          </widget>
         </widget>
@@ -1283,6 +1322,19 @@ border-radius: 15px;</string>
            <string>Current Type of Store:</string>
           </property>
          </widget>
+         <widget class="QLabel" name="editTypeStoreLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="editAddress_page">
          <widget class="QLabel" name="label_52">
@@ -1450,6 +1502,19 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
            <string>Current Address:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="editAddressLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
           </property>
          </widget>
         </widget>
@@ -1621,6 +1686,19 @@ border-radius: 15px;</string>
            <string>Current City:</string>
           </property>
          </widget>
+         <widget class="QLabel" name="editCityLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="editCountry_page">
          <widget class="QLabel" name="label_56">
@@ -1788,6 +1866,19 @@ border-radius: 15px;</string>
           </property>
           <property name="text">
            <string>Text label</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="editCountryLabel">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>420</y>
+            <width>271</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
           </property>
          </widget>
         </widget>
@@ -2209,19 +2300,6 @@ border-radius: 20px;</string>
           <width>30</width>
           <height>30</height>
          </size>
-        </property>
-       </widget>
-       <widget class="QLabel" name="editUserLabel">
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>590</y>
-          <width>271</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
         </property>
        </widget>
       </widget>

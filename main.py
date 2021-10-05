@@ -38,14 +38,37 @@ class Login(QMainWindow):
 
         if lgUserLine == "":
             self.UsernameLabelResult.setText("Username cannot be blank!")
+            self.lgUserLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                    color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
+
         else:
             self.UsernameLabelResult.setText("")
+            self.lgUserLine.setStyleSheet("QLineEdit::hover"
+                                           "{"
+                                           "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                           "}"
+                                           "QLineEdit::!hover"
+                                           "{"
+                                           "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                           "}"
+                                           )
             count += 1
 
         if lgPassLine == "":
             self.PasswordLabelResult.setText("Password cannot be blank!")
+            self.lgPassLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                    color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
         else:
             self.PasswordLabelResult.setText("")
+            self.lgPassLine.setStyleSheet("QLineEdit::hover"
+                                          "{"
+                                          "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                          "}"
+                                          "QLineEdit::!hover"
+                                          "{"
+                                          "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                          "}"
+                                          )
             count += 1
 
         if count == 2:
@@ -65,6 +88,10 @@ class Login(QMainWindow):
                 self.PasswordLabelResult.setText("Incorrect username and/or password. Please try again.")
                 self.lgUserLine.setText("")
                 self.lgPassLine.setText("")
+                self.lgUserLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                        color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
+                self.lgPassLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                        color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
 
             else: #call mainPage function
                 self.passingInformation()
@@ -94,15 +121,37 @@ class Login(QMainWindow):
         #goods, checks if blank only
         if nameRegLine == "":
             self.labelNameError.setText("Name cannot be blank!")
+            self.nameRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                        color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
         else:
             self.labelNameError.setText("")
+            self.nameRegLine.setStyleSheet("QLineEdit::hover"
+                                          "{"
+                                          "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                          "}"
+                                          "QLineEdit::!hover"
+                                          "{"
+                                          "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                          "}"
+                                          )
             count += 1
 
         # goods, check if unique
         if usernameRegLine == "":
             self.labelUsernameError.setText("Username cannot be blank!")
+            self.usernameRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                            color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
         else:
             self.labelUsernameError.setText("")
+            self.usernameRegLine.setStyleSheet("QLineEdit::hover"
+                                           "{"
+                                           "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                           "}"
+                                           "QLineEdit::!hover"
+                                           "{"
+                                           "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                           "}"
+                                           )
             #query first
             mycursor = mydb.cursor()
             query = "SELECT * FROM users WHERE '" + usernameRegLine + "' LIKE username"
@@ -112,18 +161,33 @@ class Login(QMainWindow):
             #if unique username, save
             if result is not None:
                 self.labelUsernameError.setText("Username is already in use!")
+                self.usernameRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                                color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
                 self.usernameRegLine.setText("")
             else:
+                self.usernameRegLine.setStyleSheet("QLineEdit::hover"
+                                                   "{"
+                                                   "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                                   "}"
+                                                   "QLineEdit::!hover"
+                                                   "{"
+                                                   "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                                   "}"
+                                                   )
                 count += 1
 
         # goods - email validator and check if unique
         if emailRegLine == "":
             self.labelEmailError.setText("Email cannot be blank!")
+            self.emailRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                        color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
         else:
             self.labelEmailError.setText("")
             # check if valid email, query unique email
             if not re.fullmatch(regex, emailRegLine):
                 self.labelEmailError.setText("Email is not valid!")
+                self.emailRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                                        color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
             else:
                 # query email
                 mycursor = mydb.cursor()
@@ -133,35 +197,83 @@ class Login(QMainWindow):
 
                 if resultEmail is not None:
                     self.labelEmailError.setText("Email is already in used!")
+                    self.emailRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                                            color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
                     self.emailRegLine.setText("")
                 # if unique email, save
                 else:
                     count += 1
+                    self.emailRegLine.setStyleSheet("QLineEdit::hover"
+                                                    "{"
+                                                    "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                                    "}"
+                                                    "QLineEdit::!hover"
+                                                    "{"
+                                                    "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                                    "}"
+                                                    )
 
         # goods, 8 or more character with number
         if passwordRegLine == "":
             self.labelPasswordError.setText("Password cannot be blank!")
+            self.passwordRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                            color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
         else:
             self.labelPasswordError.setText("")
+            self.passwordRegLine.setStyleSheet("QLineEdit::hover"
+                                            "{"
+                                            "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                            "}"
+                                            "QLineEdit::!hover"
+                                            "{"
+                                            "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                            "}"
+                                            )
             #8 or more letter, should contain number
             if len(passwordRegLine) < 8:
                 self.labelPasswordError.setText("Password must be atleast 8!")
+                self.passwordRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                                           color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
             else:
                 if str.isalpha(passwordRegLine):
                     self.labelPasswordError.setText("Password must have atleast one integer!")
+                    self.passwordRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                                               color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
                 else:
                     count += 1
+                    self.passwordRegLine.setStyleSheet("QLineEdit::hover"
+                                                              "{"
+                                                              "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                                              "}"
+                                                              "QLineEdit::!hover"
+                                                              "{"
+                                                              "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                                              "}"
+                                                              )
 
         #goods, confirm password
         if confirmPasswordRegLine == "":
             self.labelConfirmPasswordError.setText("Please re-type password!")
+            self.confirmPasswordRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                            color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
         else:
             self.labelConfirmPasswordError.setText("")
             if confirmPasswordRegLine != passwordRegLine:
                 self.labelConfirmPasswordError.setText("Password mismatch, try again!")
+                self.confirmPasswordRegLine.setStyleSheet("background-color:rgba(40, 48, 79, 1); border-radius: 8px;\
+                                                            color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);")
                 self.confirmPasswordRegLine.setText("")
             else:
                 count += 1
+                self.confirmPasswordRegLine.setStyleSheet("QLineEdit::hover"
+                                                          "{"
+                                                          "border : 2px solid white; border-radius: 8px; color: rgb(255, 255, 255);"
+                                                          "}"
+                                                          "QLineEdit::!hover"
+                                                          "{"
+                                                          "border : 2px solid rgb(121, 121, 121); border-radius: 8px; color: rgb(255, 255, 255);"
+                                                          "}"
+                                                          )
 
         #save to database if all conditions are passed!
         if count == 5:

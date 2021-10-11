@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="14edd5f5-8060-4ebd-ae55-b9f586d28532" name="Changes" comment="accountRegistration">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
-=======
     <list default="true" id="14edd5f5-8060-4ebd-ae55-b9f586d28532" name="Changes" comment="" />
->>>>>>> 32c7094517d56e3bd1a3af08ce6829ccd189776a
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,13 +23,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
->>>>>>> 32c7094517d56e3bd1a3af08ce6829ccd189776a
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="login" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -110,14 +99,10 @@
       <workItem from="1633173012554" duration="115000" />
       <workItem from="1633344728693" duration="1332000" />
       <workItem from="1633439755218" duration="2270000" />
-<<<<<<< HEAD
-      <workItem from="1633453746534" duration="1118000" />
-=======
       <workItem from="1633454945139" duration="3663000" />
       <workItem from="1633460589141" duration="302000" />
       <workItem from="1633460961135" duration="1856000" />
       <workItem from="1633462956415" duration="1667000" />
->>>>>>> 32c7094517d56e3bd1a3af08ce6829ccd189776a
     </task>
     <task id="LOCAL-00001" summary="printttt">
       <created>1630762123894</created>
@@ -164,10 +149,4 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/detechYolo_py$main.coverage" NAME="main Coverage Results" MODIFIED="1633464329668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/detechYolo_py$main.coverage" NAME="main Coverage Results" MODIFIED="1633454042186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-=======
->>>>>>> 32c7094517d56e3bd1a3af08ce6829ccd189776a
 </project>

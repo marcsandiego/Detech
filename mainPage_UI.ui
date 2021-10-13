@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1596</width>
-    <height>879</height>
+    <height>874</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -250,7 +250,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -605,8 +605,11 @@ color: rgb(255, 255, 255);</string>
           <height>471</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="editUser_page">
          <widget class="QLabel" name="label_41">
@@ -628,7 +631,7 @@ color: rgb(255, 255, 255);</string>
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editUsername">
+         <widget class="QLineEdit" name="editUsernameField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -732,61 +735,30 @@ border-radius: 15px;</string>
            </size>
           </property>
          </widget>
-         <widget class="QLabel" name="currUsernameLabel">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>100</y>
-            <width>161</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text label</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_22">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>151</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current Username:</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editUserLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -848,7 +820,7 @@ border-radius: 15px;</string>
            </size>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editOwner">
+         <widget class="QLineEdit" name="editOwnerField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -914,61 +886,30 @@ color: rgb(255, 255, 255);</string>
            <string>Change Name of the Owner:</string>
           </property>
          </widget>
-         <widget class="QLabel" name="currentNameOwnerLabel">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>100</y>
-            <width>221</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text Label</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_20">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>221</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current Name of the Owner:</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editOwnerLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -992,7 +933,7 @@ color: rgb(255, 255, 255);</string>
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editStoreName">
+         <widget class="QLineEdit" name="editStoreNameField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1096,61 +1037,30 @@ border-radius: 15px;</string>
            </size>
           </property>
          </widget>
-         <widget class="QLabel" name="currStoreNameLabel">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>100</y>
-            <width>161</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text Label</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_23">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>161</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current Store Name:</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editStoreLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -1174,7 +1084,7 @@ border-radius: 15px;</string>
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editStoreType">
+         <widget class="QLineEdit" name="editStoreTypeField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1278,61 +1188,30 @@ border-radius: 15px;</string>
            </size>
           </property>
          </widget>
-         <widget class="QLabel" name="currStoreTypeLabel">
-          <property name="geometry">
-           <rect>
-            <x>200</x>
-            <y>100</y>
-            <width>161</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text label</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_24">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>171</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current Type of Store:</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editTypeStoreLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -1356,7 +1235,7 @@ border-radius: 15px;</string>
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editAddress">
+         <widget class="QLineEdit" name="editAddressField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1460,61 +1339,30 @@ color: rgb(255, 255, 255);</string>
            <string>Change Address:</string>
           </property>
          </widget>
-         <widget class="QLabel" name="currAddressLabel">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>100</y>
-            <width>301</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text label</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_28">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>131</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current Address:</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editAddressLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -1561,7 +1409,7 @@ color: rgb(255, 255, 255);</string>
            <string>Change City:</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editCity">
+         <widget class="QLineEdit" name="editCityField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1642,61 +1490,30 @@ border-radius: 15px;</string>
            </size>
           </property>
          </widget>
-         <widget class="QLabel" name="currCityLabel">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>100</y>
-            <width>181</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text label</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_29">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>101</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current City:</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editCityLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -1743,7 +1560,7 @@ color: rgb(255, 255, 255);</string>
            <string>Change Country:</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="editCountry">
+         <widget class="QLineEdit" name="editCountryField">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1824,61 +1641,30 @@ border-radius: 15px;</string>
            </size>
           </property>
          </widget>
-         <widget class="QLabel" name="label_4">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>131</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Current Country:</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="currCountryLabel">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>100</y>
-            <width>161</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(45, 158, 236)</string>
-          </property>
-          <property name="text">
-           <string>Text label</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="editCountryLabel">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>420</y>
-            <width>271</width>
-            <height>21</height>
+            <x>90</x>
+            <y>360</y>
+            <width>311</width>
+            <height>31</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+          </property>
           <property name="text">
-           <string>ERROR/SUCCESS CHANGE LABEL (RED/GREEN)</string>
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -2370,7 +2156,7 @@ QLineEdit:focus{
         <property name="geometry">
          <rect>
           <x>430</x>
-          <y>310</y>
+          <y>330</y>
           <width>311</width>
           <height>41</height>
          </rect>
@@ -2413,7 +2199,7 @@ QLineEdit:focus{
         <property name="geometry">
          <rect>
           <x>320</x>
-          <y>400</y>
+          <y>420</y>
           <width>161</width>
           <height>51</height>
          </rect>
@@ -2451,7 +2237,7 @@ border-radius: 20px;</string>
         <property name="geometry">
          <rect>
           <x>520</x>
-          <y>400</y>
+          <y>420</y>
           <width>161</width>
           <height>51</height>
          </rect>
@@ -2512,7 +2298,7 @@ color: rgb(255, 255, 255);</string>
         <property name="geometry">
          <rect>
           <x>250</x>
-          <y>320</y>
+          <y>340</y>
           <width>137</width>
           <height>24</height>
          </rect>
@@ -2559,42 +2345,53 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="oldPassLabel">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>280</y>
-          <width>161</width>
-          <height>21</height>
+          <x>440</x>
+          <y>290</y>
+          <width>301</width>
+          <height>16</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Roboto</family>
-          <pointsize>9</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <pointsize>8</pointsize>
          </font>
         </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(170, 0, 0);
-background-color: none;</string>
+         <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;dito yung label&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
        </widget>
        <widget class="QLabel" name="newPassLabel">
         <property name="geometry">
          <rect>
           <x>440</x>
-          <y>360</y>
-          <width>131</width>
+          <y>380</y>
+          <width>301</width>
           <height>16</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(250, 95, 85);
+background-color: rgba(19, 24, 42, 1);
+</string>
+        </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
        </widget>
       </widget>

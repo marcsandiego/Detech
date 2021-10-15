@@ -6,12 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1596</width>
-    <height>874</height>
+    <width>1674</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainPage</string>
+   <string notr="true">DETECH</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>images/Final-DETECH-LOGO.png</normalon>
+   </iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(30, 37, 65);</string>
@@ -161,7 +166,7 @@
      <widget class="QLabel" name="userDisplayLabel">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>220</x>
         <y>0</y>
         <width>391</width>
         <height>81</height>
@@ -250,7 +255,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -609,7 +614,7 @@ color: rgb(255, 255, 255);</string>
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="editUser_page">
          <widget class="QLabel" name="label_41">
@@ -716,10 +721,26 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save Username</string>
@@ -801,10 +822,26 @@ background-color: rgba(19, 24, 42, 1);
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save Owner's Name</string>
@@ -1018,10 +1055,26 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save Store Name</string>
@@ -1169,10 +1222,26 @@ color: rgb(255, 255, 255);</string>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save Store Type</string>
@@ -1297,10 +1366,26 @@ QLineEdit:focus{
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save Store Address</string>
@@ -1471,10 +1556,26 @@ QLineEdit:focus{
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save City</string>
@@ -1622,10 +1723,26 @@ QLineEdit:focus{
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+           <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 15px;
+}
 
-border-radius: 15px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
           </property>
           <property name="text">
            <string>Save Country</string>
@@ -2069,10 +2186,26 @@ QPushButton:focus{
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+         <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 20px;
+}
 
-border-radius: 20px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
         </property>
         <property name="text">
          <string>Back</string>
@@ -2214,10 +2347,26 @@ QLineEdit:focus{
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+         <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 20px;
+}
 
-border-radius: 20px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
         </property>
         <property name="text">
          <string>Cancel</string>
@@ -2252,10 +2401,26 @@ border-radius: 20px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+         <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
+border-radius: 20px;
+}
 
-border-radius: 20px;</string>
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
         </property>
         <property name="text">
          <string>Save</string>
@@ -2810,7 +2975,21 @@ color: rgb(255, 255, 255)</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/images/titleRectangle.png)</string>
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+	border-image:url(:/images/images/titleRectangle.png)
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -2821,7 +3000,7 @@ color: rgb(255, 255, 255)</string>
          <rect>
           <x>50</x>
           <y>99</y>
-          <width>359</width>
+          <width>371</width>
           <height>24</height>
          </rect>
         </property>
@@ -2857,7 +3036,21 @@ background-color:None;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/images/titleRectangle.png)</string>
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+	border-image:url(:/images/images/titleRectangle.png)
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -2873,7 +3066,21 @@ background-color:None;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/images/titleRectangle.png)</string>
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+	border-image:url(:/images/images/titleRectangle.png)
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -2889,8 +3096,21 @@ background-color:None;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/images/titleRectangle.png)
-rgb(255, 170, 127)</string>
+         <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	padding-left: 50px;
+	border: none;
+	border-image:url(:/images/images/titleRectangle.png)
+}
+
+QPushButton:hover:!pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40, 48, 79, 255), stop:1 rgba(126, 127, 131, 255))
+}
+
+QPushButton:focus{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		rgba(30, 37, 65, 255), stop:1 rgba(85, 122, 224, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -2963,7 +3183,7 @@ background-color:None;
          <rect>
           <x>50</x>
           <y>278</y>
-          <width>320</width>
+          <width>351</width>
           <height>24</height>
          </rect>
         </property>
@@ -3025,7 +3245,7 @@ background-color:None;
          <rect>
           <x>50</x>
           <y>458</y>
-          <width>339</width>
+          <width>371</width>
           <height>24</height>
          </rect>
         </property>
@@ -4103,7 +4323,7 @@ QPushButton{
 }</string>
       </property>
       <property name="text">
-       <string>Profile</string>
+       <string> Profile        </string>
       </property>
       <property name="icon">
        <iconset resource="detechRs.qrc">
@@ -4137,6 +4357,9 @@ QPushButton{
         <pointsize>10</pointsize>
        </font>
       </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 	color: rgb(255, 255, 255);
@@ -4155,7 +4378,7 @@ QPushButton{
 }</string>
       </property>
       <property name="text">
-       <string>Surveillance</string>
+       <string> Surveillance</string>
       </property>
       <property name="icon">
        <iconset resource="detechRs.qrc">
@@ -4201,7 +4424,7 @@ QPushButton{
 }</string>
       </property>
       <property name="text">
-       <string>Data History</string>
+       <string> Data History</string>
       </property>
       <property name="icon">
        <iconset resource="detechRs.qrc">
@@ -4298,7 +4521,7 @@ QPushButton{
 }</string>
       </property>
       <property name="text">
-       <string>Settings</string>
+       <string> Settings</string>
       </property>
       <property name="icon">
        <iconset resource="detechRs.qrc">

@@ -1,7 +1,9 @@
 import sys
 import re
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
 import mysql.connector as mc
 #---Import that will load the UI file---#
 from PyQt5.uic import loadUi
@@ -17,22 +19,24 @@ import time
 #--CLASS CREATED THAT WILL LOAD THE UI FILE
 class Login(QMainWindow):
     def __init__(self):
-        super(Login, self).__init__()
+        super().__init__()
         # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
-        loadUi("login_UI.ui",self)
         self.setFixedWidth(1190)  # -- setting the fixed window size in width --#
         self.setFixedHeight(782)  # -- setting the fixed window size in height--#
 
+        #ewan ko ginawa neto parang naging variable lang ni mainPage
+        self.mainWindow = mainPage()
+        self.openApp()
+
+    def openApp(self):
         # --- a code once the login button clicked, will call the loginFunction ---#
+        loadUi("login_UI.ui", self)
         self.loginButton.clicked.connect(self.loginFunction)
         self.registerButton.clicked.connect(self.registerUi)
 
-        #ewan ko ginawa neto parang naging variable lang ni mainPage
-        self.mainWindow = mainPage()
-
         # -- Created a function called "loginFunction" --#
     def loginFunction(self):
-        lgUserLine = self.lgUserLine.text().capitalize()  # -- Getting the textbox context lgUserline --#
+        lgUserLine = self.lgUserLine.text().title()  # -- Getting the textbox context lgUserline --#
         lgPassLine = self.lgPassLine.text()  # -- Getting the textbox context lgPassline --#
         count = 0
 
@@ -82,7 +86,7 @@ class Login(QMainWindow):
         self.setFixedWidth(1190)  # -- setting the fixed window size in width --#
         self.setFixedHeight(782)  # -- setting the fixed window size in height--#
         self.registerButton.clicked.connect(self.registerFunction)
-        self.loginHere.clicked.connect(self.__init__) #should go back to the first function!!!
+        self.loginHere.clicked.connect(self.openApp) #should go back to the first function!!!
 
     def registerFunction(self):
         count = 0
@@ -93,7 +97,7 @@ class Login(QMainWindow):
             password="",
             database="detech"
         )
-        nameRegLine = self.nameRegLine.text().capitalize()  # -- Getting the textbox context lgUserline --#
+        nameRegLine = self.nameRegLine.text().title()  # -- Getting the textbox context lgUserline --#
         usernameRegLine = self.usernameRegLine.text()  # -- Getting the textbox context lgPassline --#
         emailRegLine = self.emailRegLine.text()  # -- Getting the textbox context lgPassline --#
         passwordRegLine = self.passwordRegLine.text()  # -- Getting the textbox context lgPassline --#
@@ -196,9 +200,7 @@ class Login(QMainWindow):
             value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine, confirmPasswordRegLine)
             mycursor.execute(insert, value)
             mydb.commit()
-            # go to login function - should call the login class
-            # should go back to the first function!!!
-            # __init__() di ko alam pato to haha
+            self.openApp()
 
 
     def passingInformation(self):
@@ -211,8 +213,8 @@ class mainPage(QMainWindow):
         super(mainPage, self).__init__()
         # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
         loadUi("mainPage_UI.ui",self)
-        self.setFixedWidth(1596)
-        self.setFixedHeight(882)
+        #self.setFixedWidth(1596)
+        #self.setFixedHeight(882)
 
         # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
         self.stackedWidget.setCurrentWidget(self.profile_page)
@@ -220,7 +222,7 @@ class mainPage(QMainWindow):
         # date and time = need to improve the time, should be running
         dateTime = datetime.datetime.now()
         self.dateDisplay_label.setText('%s/%s/%s' % (dateTime.month, dateTime.day, dateTime.year))
-        self.timeDisplay_label.setText('%s:%s:%s' % (dateTime.hour, dateTime.minute, dateTime.second))
+        #self.timeDisplay_label.setText('%s:%s:%s' % (dateTime.hour, dateTime.minute, dateTime.second))
 
         # --- CODED BUTTONS IN ABLE TO SELECT A CERTAIN STACKED WIDGET PAGE --- #
         self.profileButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # Profile button to Profile page
@@ -268,7 +270,6 @@ class mainPage(QMainWindow):
         self.camera3_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera3_page))
         self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
-
         self.displayProfile()
 
 
@@ -318,8 +319,7 @@ class mainPage(QMainWindow):
         self.saveCity_button.clicked.connect(self.changeCity)
         self.saveCountry_button.clicked.connect(self.changeCountry)
         self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
-
-
+        self.logoutAccount_button.clicked.connect(self.showDialogLogout)
 
     def changeUsername(self):
         username1 = self.userDisplayLabel.text()
@@ -357,7 +357,7 @@ class mainPage(QMainWindow):
 
     def changeOwnername(self):
         username1 = self.userDisplayLabel.text()
-        editOwnername = self.editOwnerField.text()
+        editOwnername = self.editOwnerField.text().title()
 
         mydb = mc.connect(
             host="localhost",
@@ -382,7 +382,7 @@ class mainPage(QMainWindow):
 
     def changeStorename(self):
         username1 = self.userDisplayLabel.text()
-        editStorename = self.editStoreNameField.text()
+        editStorename = self.editStoreNameField.text().title()
 
         mydb = mc.connect(
             host="localhost",
@@ -407,7 +407,7 @@ class mainPage(QMainWindow):
 
     def changeStoretype(self):
         username1 = self.userDisplayLabel.text()
-        editStoretype = self.editStoreTypeField.text()
+        editStoretype = self.editStoreTypeField.text().title()
 
         mydb = mc.connect(
             host="localhost",
@@ -432,7 +432,7 @@ class mainPage(QMainWindow):
 
     def changeAddress(self):
         username1 = self.userDisplayLabel.text()
-        editAddress = self.editAddressField.text()
+        editAddress = self.editAddressField.text().title()
 
         mydb = mc.connect(
             host="localhost",
@@ -457,8 +457,7 @@ class mainPage(QMainWindow):
 
     def changeCity(self):
         username1 = self.userDisplayLabel.text()
-        editCity = self.editCityField.text()
-
+        editCity = self.editCityField.text().title()
         mydb = mc.connect(
             host="localhost",
             user="root",
@@ -482,7 +481,7 @@ class mainPage(QMainWindow):
 
     def changeCountry(self):
         username1 = self.userDisplayLabel.text()
-        editCountry = self.editCountryField.text()
+        editCountry = self.editCountryField.text().title()
 
         mydb = mc.connect(
             host="localhost",
@@ -563,6 +562,21 @@ class mainPage(QMainWindow):
             self.stackedWidget.setCurrentWidget(self.profile_page)
             self.displayProfile()
 
+    def showDialogLogout(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Question)
+        msgBox.setText("Are you sure you want to logout?")
+        msgBox.setWindowTitle("Confirm Exit")
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.Yes:
+            print('OK clicked')
+            sys.exit()
+
+
+
+
 
 
 #variables for stylesheet
@@ -613,9 +627,6 @@ background-color: rgba(19, 24, 42, 1);
 background-color: rgba(19, 24, 42, 1); border-radius: 8px;\                                                         
 color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);
 """
-
-
-
 
 
 #--- LAUNCHING THE APPLICATION ---#

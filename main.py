@@ -2,6 +2,7 @@ import sys
 import re
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt
 import mysql.connector as mc
@@ -222,7 +223,7 @@ class mainPage(QMainWindow):
         # date and time = need to improve the time, should be running
         dateTime = datetime.datetime.now()
         self.dateDisplay_label.setText('%s/%s/%s' % (dateTime.month, dateTime.day, dateTime.year))
-        #self.timeDisplay_label.setText('%s:%s:%s' % (dateTime.hour, dateTime.minute, dateTime.second))
+        self.timeDisplay_label.setText('%s:%s:%s' % (dateTime.hour, dateTime.minute, dateTime.second))
 
         # --- CODED BUTTONS IN ABLE TO SELECT A CERTAIN STACKED WIDGET PAGE --- #
         self.profileButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # Profile button to Profile page
@@ -320,6 +321,10 @@ class mainPage(QMainWindow):
         self.saveCountry_button.clicked.connect(self.changeCountry)
         self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
         self.logoutAccount_button.clicked.connect(self.showDialogLogout)
+        self.faceMaskOnly_radioButton.clicked.connect(self.fmOnly)
+        self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
+        self.facemaskFaceshield_radioButton.clicked.connect(self.both)
+
 
     def changeUsername(self):
         username1 = self.userDisplayLabel.text()
@@ -574,6 +579,32 @@ class mainPage(QMainWindow):
             print('OK clicked')
             sys.exit()
 
+    def fmOnly(self):
+        if self.faceMaskOnly_radioButton.isChecked():
+            self.detectionChoice_label.setText("Face Mask Only")
+            pixmap = QPixmap('images/fmonly.png')
+            self.pictureDetectionSample_label.setPixmap(pixmap)
+        else:
+            self.detectionChoice_label.setText("")
+        self.displayProfile()
+
+    def fsOnly(self):
+        if self.faceShieldOnly_radioButton.isChecked():
+            self.detectionChoice_label.setText("Face Shield Only")
+            pixmap = QPixmap('images/fsonly.png')
+            self.pictureDetectionSample_label.setPixmap(pixmap)
+        else:
+            self.detectionChoice_label.setText("")
+        self.displayProfile()
+
+    def both(self):
+        if self.facemaskFaceshield_radioButton.isChecked():
+            self.detectionChoice_label.setText("Face Mask and Face Shield")
+            pixmap = QPixmap('images/both.png')
+            self.pictureDetectionSample_label.setPixmap(pixmap)
+        else:
+            self.detectionChoice_label.setText("")
+        self.displayProfile()
 
 
 

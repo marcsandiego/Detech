@@ -2,16 +2,27 @@
 <ui version="4.0">
  <class>loginWindow</class>
  <widget class="QMainWindow" name="loginWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1190</width>
-    <height>775</height>
+    <width>1191</width>
+    <height>782</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">DETECH</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>images/Final-DETECH-LOGO.png</normalon>
+   </iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>0.000000000000000</double>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(19, 24, 42);</string>
@@ -46,7 +57,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Roboto</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -68,7 +78,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Roboto</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -90,7 +99,6 @@
      </property>
      <property name="font">
       <font>
-       <family>Roboto</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -110,6 +118,9 @@ QLineEdit:focus{
 	border: 2px solid white;
 }</string>
      </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhLowercaseOnly</set>
+     </property>
      <property name="inputMask">
       <string notr="true"/>
      </property>
@@ -128,7 +139,6 @@ QLineEdit:focus{
      </property>
      <property name="font">
       <font>
-       <family>Roboto</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -163,16 +173,32 @@ QLineEdit:focus{
      </property>
      <property name="font">
       <font>
-       <family>Roboto</family>
        <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+      <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
 color: white;
-border-radius: 20px;</string>
+border-radius: 20px;
+}
+
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
      </property>
      <property name="text">
       <string>Login</string>
@@ -191,15 +217,14 @@ border-radius: 20px;</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>770</x>
+       <x>780</x>
        <y>630</y>
-       <width>161</width>
-       <height>20</height>
+       <width>131</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>Roboto</family>
        <pointsize>9</pointsize>
       </font>
      </property>
@@ -208,30 +233,6 @@ border-radius: 20px;</string>
      </property>
      <property name="text">
       <string>Don't have an account?</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="QLabel">
-     <property name="geometry">
-      <rect>
-       <x>940</x>
-       <y>630</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(45, 158, 236);</string>
-     </property>
-     <property name="text">
-      <string>Register Here.</string>
      </property>
     </widget>
     <widget class="QLabel" name="lgDetechLogo">
@@ -275,11 +276,15 @@ border-radius: 20px;</string>
     <widget class="QLabel" name="UsernameLabelResult">
      <property name="geometry">
       <rect>
-       <x>750</x>
-       <y>360</y>
-       <width>211</width>
-       <height>31</height>
+       <x>756</x>
+       <y>351</y>
+       <width>341</width>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(250, 95, 85)
+</string>
      </property>
      <property name="text">
       <string/>
@@ -288,24 +293,43 @@ border-radius: 20px;</string>
     <widget class="QPushButton" name="registerButton">
      <property name="geometry">
       <rect>
-       <x>934</x>
+       <x>920</x>
        <y>630</y>
        <width>91</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+color: rgb(45, 158, 236);
+font: 700 9pt &quot;Segoe UI&quot;;
+text-decoration: underline;
+}
+
+QPushButton:pressed {
+    border-style: inset;
+    background:#0000ffff;
+    }</string>
+     </property>
      <property name="text">
-      <string/>
+      <string>Register Here</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="PasswordLabelResult">
      <property name="geometry">
       <rect>
-       <x>760</x>
-       <y>470</y>
-       <width>211</width>
-       <height>31</height>
+       <x>756</x>
+       <y>461</y>
+       <width>331</width>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(250, 95, 85)
+</string>
      </property>
      <property name="text">
       <string/>
@@ -318,7 +342,6 @@ border-radius: 20px;</string>
     <zorder>lgPassLine</zorder>
     <zorder>loginButton</zorder>
     <zorder>label</zorder>
-    <zorder>QLabel</zorder>
     <zorder>lgDetechLogo</zorder>
     <zorder>label_3</zorder>
     <zorder>UsernameLabelResult</zorder>
@@ -335,7 +358,6 @@ border-radius: 20px;</string>
     </property>
     <property name="font">
      <font>
-      <family>Roboto</family>
       <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>

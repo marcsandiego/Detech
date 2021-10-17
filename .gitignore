@@ -11,6 +11,8 @@
 *.orig
 *.rej
 *.so
+*.jpg
+*.mp4
 
 .idea/
 .idea/workspace.xml

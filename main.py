@@ -220,6 +220,7 @@ class mainPage(QMainWindow):
         # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
         self.stackedWidget.setCurrentWidget(self.profile_page)
 
+
         # date and time = need to improve the time, should be running
         dateTime = datetime.datetime.now()
         self.dateDisplay_label.setText('%s/%s/%s' % (dateTime.month, dateTime.day, dateTime.year))
@@ -232,7 +233,8 @@ class mainPage(QMainWindow):
         self.settingsButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) # settings button to settings page
 
         #--- PROFILE EDIT PAGE ---#
-        self.editProfile_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.editProfile_page)) # Edit profile button to edit profile page
+        self.editProfile_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.editProfile_page)) # Edit profile button to edit profile
+        self.editProfile_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editUser_page))
         self.editProfileBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # -- CANCEL BUTTON --#
 
         #--- PROFILE EDIT STACKED WIDGETS ---#

@@ -210,9 +210,9 @@
      <widget class="QLabel" name="timeDisplay_label">
       <property name="geometry">
        <rect>
-        <x>830</x>
+        <x>860</x>
         <y>40</y>
-        <width>141</width>
+        <width>121</width>
         <height>31</height>
        </rect>
       </property>
@@ -255,7 +255,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -3438,9 +3438,9 @@ background-color:None;
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>230</y>
+          <y>250</y>
           <width>301</width>
-          <height>311</height>
+          <height>281</height>
          </rect>
         </property>
         <property name="font">

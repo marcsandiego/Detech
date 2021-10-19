@@ -3,7 +3,7 @@ import re
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
 import mysql.connector as mc
 #---Import that will load the UI file---#
@@ -13,6 +13,11 @@ import datetime
 from threading import Timer
 import schedule
 import time
+from yolov5 import detechYolo
+from PyQt5.QtWidgets import  QWidget, QLabel, QApplication
+from PyQt5.QtCore import QThread, Qt, pyqtSignal, pyqtSlot
+from PyQt5.QtGui import QImage, QPixmap
+import cv2
 
 #link kung saan sinundan ko yung getting info from diff window
 #https://www.youtube.com/watch?v=NrijKenny3Y
@@ -273,6 +278,7 @@ class mainPage(QMainWindow):
         self.camera3_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera3_page))
         self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
+
         self.displayProfile()
 
 
@@ -326,6 +332,19 @@ class mainPage(QMainWindow):
         self.faceMaskOnly_radioButton.clicked.connect(self.fmOnly)
         self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
         self.facemaskFaceshield_radioButton.clicked.connect(self.both)
+        # buttons to display camera
+        self.camera1_button.clicked.connect(self.load)
+        self.surveillanceButton.clicked.connect(self.load)
+
+    def load(self):
+        th = Thread(self)
+        th.changePixmap.connect(self.setImage)
+        th.start()
+        self.show()
+
+    def setImage(self, image):
+        self.camera1_label.setPixmap(QPixmap.fromImage(image))
+        self.allCam1_label.setPixmap(QPixmap.fromImage(image))
 
 
     def changeUsername(self):
@@ -608,7 +627,21 @@ class mainPage(QMainWindow):
             self.detectionChoice_label.setText("")
         self.displayProfile()
 
+class Thread(QThread):
+    changePixmap = pyqtSignal(QImage)
 
+    def run(self):
+        cap = cv2.VideoCapture(0)
+        while True:
+            ret, frame = cap.read()
+            if ret:
+                # https://stackoverflow.com/a/55468544/6622587
+                rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                h, w, ch = rgbImage.shape
+                bytesPerLine = ch * w
+                convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
+                p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+                self.changePixmap.emit(p)
 
 
 

@@ -255,7 +255,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="profile_page">
        <widget class="QLabel" name="rectangle_frame">
@@ -2755,7 +2755,7 @@ QPushButton:focus{
          </rect>
         </property>
         <property name="currentIndex">
-         <number>4</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="camera1_page">
          <widget class="QLabel" name="camera1_label">
@@ -2773,7 +2773,7 @@ QPushButton:focus{
            </font>
           </property>
           <property name="text">
-           <string>CAMERA 1 OUTPUT</string>
+           <string notr="true"/>
           </property>
          </widget>
         </widget>
@@ -2860,18 +2860,6 @@ QPushButton:focus{
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="allCam3_label">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>CAMERA 3 OUTPUT</string>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="1">
             <widget class="QLabel" name="allCam4_label">
              <property name="font">
@@ -2893,6 +2881,24 @@ QPushButton:focus{
              </property>
              <property name="text">
               <string>CAMERA 2 OUTPUT</string>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+             <property name="openExternalLinks">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="allCam3_label">
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>CAMERA 3 OUTPUT</string>
              </property>
             </widget>
            </item>

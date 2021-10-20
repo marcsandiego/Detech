@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1607</width>
-    <height>902</height>
+    <height>921</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -344,7 +344,7 @@
           <rect>
            <x>10</x>
            <y>200</y>
-           <width>161</width>
+           <width>174</width>
            <height>301</height>
           </rect>
          </property>
@@ -614,7 +614,7 @@ color: rgb(255, 255, 255);</string>
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>6</number>
         </property>
         <widget class="QWidget" name="editUser_page">
          <widget class="QLabel" name="label_41">
@@ -2755,7 +2755,7 @@ QPushButton:focus{
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="camera1_page">
          <widget class="QLabel" name="camera1_label">
@@ -3797,7 +3797,7 @@ background-color:None;
          </rect>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="cctvAvailableConnect_page">
          <widget class="QLabel" name="label_15">
@@ -3995,7 +3995,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		r
            <rect>
             <x>240</x>
             <y>220</y>
-            <width>311</width>
+            <width>511</width>
             <height>41</height>
            </rect>
           </property>
@@ -4014,7 +4014,7 @@ background: None;
 }</string>
           </property>
           <property name="text">
-           <string>IP Address:</string>
+           <string>URL (HTTP, HTTPS, RTSP, 0 for webcam)</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="IPaddress_Line">

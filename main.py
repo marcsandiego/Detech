@@ -332,6 +332,10 @@ class mainPage(QMainWindow):
                 # self.startDetection(self.detections[url], self.camera1_label)
                 thread1 = threading.Thread(target=self.startDetection, args=[self.detections[url]])
                 thread1.start()
+                time.sleep(5)
+                thread2 = threading.Thread(target=self.displayDetection, args=[url])
+                thread2.start()
+                # self.displayDetection(self.detections[url].frame)
                 self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)
 
 
@@ -339,20 +343,26 @@ class mainPage(QMainWindow):
         det.loadModel()
         det.loadData()
         det.startInference()
-        # self.displayDetection(det.frame, widget)
 
     def stopDetection(self, det):
         det.stopInference()
         self.thread1.join()
         self.thread2.join()
 
-    def displayDetection(self, frame):
-        rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        h, w, ch = rgbImage.shape
-        bytesPerLine = ch * w
-        convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
-        p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
-        self.camera2_label.setPixmap(QPixmap.fromImage(frame))
+    def displayDetection(self, url):
+        while True:
+            frame = self.detections[url].frame
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            # h, w, ch = rgbImage.shape
+            # bytesPerLine = ch * w
+            # convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
+            # p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+            # self.camera2_label.setPixmap(QPixmap.fromImage(frame))
+            QImg = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
+            pixMap = QPixmap.fromImage(QImg)
+            pixMap = pixMap.scaled(416,640, Qt.KeepAspectRatio)
+            self.camera1_label.setPixmap(pixMap)
+            time.sleep(1)     
 
 
     def displayingInformation(self):

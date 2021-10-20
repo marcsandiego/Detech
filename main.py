@@ -18,6 +18,7 @@ from PyQt5.QtWidgets import  QWidget, QLabel, QApplication
 from PyQt5.QtCore import QThread, Qt, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QImage, QPixmap
 import cv2
+import threading
 
 #link kung saan sinundan ko yung getting info from diff window
 #https://www.youtube.com/watch?v=NrijKenny3Y
@@ -215,6 +216,19 @@ class Login(QMainWindow):
         self.mainWindow.displayProfile()
 
 class mainPage(QMainWindow):
+    cameras = {
+                "1":False,
+                "2":False,
+                "3":False,
+                "4":False
+                }
+
+    activeCam = 0
+    detections = {"":None}
+    classes = []
+    thread1 = None
+    thread2 = None
+
     def __init__(self):
         super(mainPage, self).__init__()
         # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
@@ -266,7 +280,7 @@ class mainPage(QMainWindow):
         # --- setupCCTV widgets ---#
         self.cancelSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) #cancel setup cctv button, returns to setting page
         self.connectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.connectIP_page)) #connect IP button to connect IP page
-        self.continueConnectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)) # continue to connect ip to cinnection view surveillance sucesss
+        self.continueConnectIP_button.clicked.connect(self.addCamera) # continue to connect ip to cinnection view surveillance sucesss
         self.checkSurveillance_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page)) #check surveillance button redirect to surveillance.
 
         # --- SET THE "ALL CAMERA" PAGE AS A DEFAULT PAGE WHEN SELECTING THE SURVEILLANCE PAGE--- #
@@ -280,6 +294,65 @@ class mainPage(QMainWindow):
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
 
         self.displayProfile()
+
+    # Add Camera method
+    def addCamera(self):
+        url = str(self.IPaddress_Line.text())
+        url = url.strip()
+
+        # Check the validity of the URL
+        if len(url) == 0:
+            print("URL length is 0")
+        else:
+            test_url = int(url) if url.isnumeric() else url
+            test = cv2.VideoCapture(test_url)
+            if test is None or not test.isOpened():
+                print("Invalid URL")
+                self.label_27.setStyleSheet("background-color: red")
+                self.label_27.setText("Invalid URL/IP")
+                self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)
+                self.connectedCameraOutput_label.clear()
+            else:
+                self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
+                print("Success!")
+                self.label_27.setStyleSheet("background-color: green")
+                self.label_27.setText("Connected IP: " +str(url))
+
+                # Display sample frame
+                ret, frame = test.read()
+                if ret: 
+                    rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                    h, w, ch = rgbImage.shape
+                    bytesPerLine = ch * w
+                    convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
+                    p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+                    self.connectedCameraOutput_label.setPixmap(QPixmap.fromImage(p))
+
+                time.sleep(1)
+                # self.startDetection(self.detections[url], self.camera1_label)
+                thread1 = threading.Thread(target=self.startDetection, args=[self.detections[url]])
+                thread1.start()
+                self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)
+
+
+    def startDetection(self, det):
+        det.loadModel()
+        det.loadData()
+        det.startInference()
+        # self.displayDetection(det.frame, widget)
+
+    def stopDetection(self, det):
+        det.stopInference()
+        self.thread1.join()
+        self.thread2.join()
+
+    def displayDetection(self, frame):
+        rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        h, w, ch = rgbImage.shape
+        bytesPerLine = ch * w
+        convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
+        p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+        self.camera2_label.setPixmap(QPixmap.fromImage(frame))
 
 
     def displayingInformation(self):
@@ -333,14 +406,14 @@ class mainPage(QMainWindow):
         self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
         self.facemaskFaceshield_radioButton.clicked.connect(self.both)
         # buttons to display camera
-        self.camera1_button.clicked.connect(self.load)
-        self.surveillanceButton.clicked.connect(self.load)
+        # self.camera1_button.clicked.connect(self.load)
+        # self.surveillanceButton.clicked.connect(self.load)
 
-    def load(self):
-        th = Thread(self)
-        th.changePixmap.connect(self.setImage)
-        th.start()
-        self.show()
+    # def load(self):
+    #     th = Thread(self)
+    #     th.changePixmap.connect(self.setImage)
+    #     th.start()
+    #     self.show()
 
     def setImage(self, image):
         self.camera1_label.setPixmap(QPixmap.fromImage(image))
@@ -604,6 +677,7 @@ class mainPage(QMainWindow):
         if self.faceMaskOnly_radioButton.isChecked():
             self.detectionChoice_label.setText("Face Mask Only")
             pixmap = QPixmap('images/fmonly.png')
+            self.classes = [1,3]
             self.pictureDetectionSample_label.setPixmap(pixmap)
         else:
             self.detectionChoice_label.setText("")
@@ -613,6 +687,7 @@ class mainPage(QMainWindow):
         if self.faceShieldOnly_radioButton.isChecked():
             self.detectionChoice_label.setText("Face Shield Only")
             pixmap = QPixmap('images/fsonly.png')
+            self.classes = [2,3]
             self.pictureDetectionSample_label.setPixmap(pixmap)
         else:
             self.detectionChoice_label.setText("")
@@ -622,26 +697,27 @@ class mainPage(QMainWindow):
         if self.facemaskFaceshield_radioButton.isChecked():
             self.detectionChoice_label.setText("Face Mask and Face Shield")
             pixmap = QPixmap('images/both.png')
+            self.classes = [0, 1, 2, 3]
             self.pictureDetectionSample_label.setPixmap(pixmap)
         else:
             self.detectionChoice_label.setText("")
         self.displayProfile()
 
-class Thread(QThread):
-    changePixmap = pyqtSignal(QImage)
+# class Thread(QThread):
+#     changePixmap = pyqtSignal(QImage)
 
-    def run(self):
-        cap = cv2.VideoCapture(0)
-        while True:
-            ret, frame = cap.read()
-            if ret:
-                # https://stackoverflow.com/a/55468544/6622587
-                rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                h, w, ch = rgbImage.shape
-                bytesPerLine = ch * w
-                convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
-                p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
-                self.changePixmap.emit(p)
+#     def run(self):
+#         cap = cv2.VideoCapture(0)
+#         while True:
+#             ret, frame = cap.read()
+#             if ret:
+#                 # https://stackoverflow.com/a/55468544/6622587
+#                 rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+#                 h, w, ch = rgbImage.shape
+#                 bytesPerLine = ch * w
+#                 convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
+#                 p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+#                 self.changePixmap.emit(p)
 
 
 

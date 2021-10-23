@@ -4155,7 +4155,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		r
             <string>  Available Connect IP Camera</string>
            </property>
           </widget>
-          <widget class="QLabel" name="label_84">
+          <widget class="QLabel" name="label_27">
            <property name="geometry">
             <rect>
              <x>240</x>

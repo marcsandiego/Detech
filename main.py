@@ -216,18 +216,9 @@ class Login(QMainWindow):
         self.mainWindow.displayProfile()
 
 class mainPage(QMainWindow):
-    cameras = {
-                "1":False,
-                "2":False,
-                "3":False,
-                "4":False
-                }
-
     activeCam = 0
-    detections = {"":None}
-    classes = []
-    thread1 = None
-    thread2 = None
+    detections = []
+    classes = None
 
     def __init__(self):
         super(mainPage, self).__init__()
@@ -235,6 +226,11 @@ class mainPage(QMainWindow):
         loadUi("mainPage_UI.ui",self)
         #self.setFixedWidth(1596)
         #self.setFixedHeight(882)
+
+        self.cameraWidgets = [[self.camera1_label, self.allCam1_label],
+        [self.camera2_label, self.allCam2_label],
+        [self.camera3_label, self.allCam3_label],
+        [self.camera4_label, self.allCam4_label],]
 
         # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
         self.stackedWidget.setCurrentWidget(self.profile_page)
@@ -293,7 +289,12 @@ class mainPage(QMainWindow):
         self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
 
+
         self.displayProfile()
+
+    # def closeEvent(self, *args, **kwargs):
+    #     super(QMainWindow, self).closeEvent(*args, **kwargs)
+    #     self.stopDetection()
 
     # Add Camera method
     def addCamera(self):
@@ -313,7 +314,8 @@ class mainPage(QMainWindow):
                 self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)
                 self.connectedCameraOutput_label.clear()
             else:
-                self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
+                # self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
+                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
                 print("Success!")
                 self.label_27.setStyleSheet("background-color: green")
                 self.label_27.setText("Connected IP: " +str(url))
@@ -330,39 +332,35 @@ class mainPage(QMainWindow):
 
                 time.sleep(1)
                 # self.startDetection(self.detections[url], self.camera1_label)
-                thread1 = threading.Thread(target=self.startDetection, args=[self.detections[url]])
-                thread1.start()
-                time.sleep(5)
-                thread2 = threading.Thread(target=self.displayDetection, args=[url])
-                thread2.start()
+                # thread1 = threading.Thread(target=self.startDetection, args=[self.detections[url]])
+                # thread1.start()
+                # thread2 = threading.Thread(target=self.displayDetection, args=[url])
+                # thread2.start()
                 # self.displayDetection(self.detections[url].frame)
+                self.detections[self.activeCam].start()
+                self.activeCam += 1
                 self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)
 
 
-    def startDetection(self, det):
-        det.loadModel()
-        det.loadData()
-        det.startInference()
+    # def startDetection(self, det):
+    #     det.loadModel()
+    #     det.loadData()
+    #     det.startInference()
 
-    def stopDetection(self, det):
-        det.stopInference()
-        self.thread1.join()
-        self.thread2.join()
+    def stopDetection(self):
+        for detection in self.detections:
+            detection.stop()
+        print("Stopped")
 
-    def displayDetection(self, url):
-        while True:
-            frame = self.detections[url].frame
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            # h, w, ch = rgbImage.shape
-            # bytesPerLine = ch * w
-            # convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
-            # p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
-            # self.camera2_label.setPixmap(QPixmap.fromImage(frame))
-            QImg = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
-            pixMap = QPixmap.fromImage(QImg)
-            pixMap = pixMap.scaled(416,640, Qt.KeepAspectRatio)
-            self.camera1_label.setPixmap(pixMap)
-            time.sleep(1)     
+    # def displayDetection(self, url):
+    #     while True:
+    #         frame = self.detections[url].frame
+    #         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    #         QImg = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
+    #         pixMap = QPixmap.fromImage(QImg)
+    #         pixMap = pixMap.scaled(416,640, Qt.KeepAspectRatio)
+    #         self.camera1_label.setPixmap(pixMap)
+    #         time.sleep(1)     
 
 
     def displayingInformation(self):
@@ -425,9 +423,9 @@ class mainPage(QMainWindow):
     #     th.start()
     #     self.show()
 
-    def setImage(self, image):
-        self.camera1_label.setPixmap(QPixmap.fromImage(image))
-        self.allCam1_label.setPixmap(QPixmap.fromImage(image))
+    # def setImage(self, image):
+    #     self.camera1_label.setPixmap(QPixmap.fromImage(image))
+    #     self.allCam1_label.setPixmap(QPixmap.fromImage(image))
 
 
     def changeUsername(self):
@@ -728,6 +726,43 @@ class mainPage(QMainWindow):
 #                 convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
 #                 p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
 #                 self.changePixmap.emit(p)
+
+
+# Class that contains camera informations, detections, and methods
+class Camera:
+    def __init__(self, url, detech=detechYolo.Detech(), widget=None, name=None) -> None:
+        self.url = url
+        self.detech = detech
+        self.widget = widget
+        self.name = name
+        self.frameWorker = threading.Thread(target=self.setDisplay, daemon=True)
+        pass
+
+    def start(self):
+        self.detech.startInference()
+        print("Displaying results in 5 secs")
+        time.sleep(5)
+        self.frameWorker.start()
+
+    def stop(self):
+        self.detech.stopInference()
+        self.frameWorker.join()
+
+    def setDisplay(self):
+        while True:
+            if self.detech.isDetecting:
+                print("Changing Display")
+                frame = self.detech.frame
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                QImg = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
+                pixMap = QPixmap.fromImage(QImg)
+                pixMap1 = pixMap.scaled(961,611, Qt.KeepAspectRatio)
+                pixMap2 = pixMap.scaled(486,311, Qt.KeepAspectRatio)
+                self.widget[0].setPixmap(pixMap1)
+                self.widget[1].setPixmap(pixMap2)
+            else:
+                print("No display")
+            cv2.waitKey(300)
 
 
 

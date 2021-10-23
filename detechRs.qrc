@@ -1,6 +1,11 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/registerPagePicture.png</file>
+    <file>images/istockphoto-1210621821-640x640.jpg</file>
+    <file>images/detechDesc.png</file>
+    <file>images/blackOpacity.png</file>
     <file>images/rightArrowWhite.png</file>
+    <file>images/diverse-business-people-with-masks-new-normal.png</file>
     <file>images/whiteLineShape.png</file>
     <file>images/plusSign.png</file>
     <file>images/detectionSetup.png</file>

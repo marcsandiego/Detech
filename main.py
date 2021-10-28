@@ -1,7 +1,7 @@
 import sys
 import re
 from PyQt5 import QtWidgets, QtGui, QtCore
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox, QComboBox
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
@@ -16,7 +16,7 @@ import time
 from yolov5 import detechYolo
 from PyQt5.QtWidgets import  QWidget, QLabel, QApplication
 from PyQt5.QtCore import QThread, Qt, pyqtSignal, pyqtSlot
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import *
 import cv2
 import threading
 
@@ -218,7 +218,20 @@ class mainPage(QMainWindow):
         # date and time = need to improve the time, should be running
         dateTime = datetime.datetime.now()
         self.dateDisplay_label.setText('%s/%s/%s' % (dateTime.month, dateTime.day, dateTime.year))
-        self.timeDisplay_label.setText('%s:%s:%s' % (dateTime.hour, dateTime.minute, dateTime.second))
+
+        # --- DATA HISTORY PAGE ---#
+        self.comboClasses.addItems(['All', 'Without Both', 'Facemask Only', 'Faceshield Only'])
+        # --- YEAR ---#
+        self.comboYear.addItems(
+            [('%s' % (dateTime.year)), '2021', '2022', '2023', '2024', '2025', '2026', '2077', '2028', '2029', '2030'])
+        # --- MONTHS --- #
+        self.comboMonth.addItems(
+            [('%s' % (dateTime.month)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'])
+        # --- DATES --- #
+        self.comboDate.addItems(
+            [('%s' % (dateTime.day)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13',
+             '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+             '31'])
 
         # --- CODED BUTTONS IN ABLE TO SELECT A CERTAIN STACKED WIDGET PAGE --- #
         self.profileButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page))  # Profile button to Profile page
@@ -256,8 +269,7 @@ class mainPage(QMainWindow):
         self.cancelSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page))  # cancel setup cctv button, returns to setting page
         self.connectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.connectIP_page))  # connect IP button to connect IP page
         self.continueConnectIP_button.clicked.connect(self.addCamera)  # continue to connect ip to cinnection view surveillance sucesss
-        self.checkSurveillance_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(
-        self.surveillance_page))  # check surveillance button redirect to surveillance.
+        self.checkSurveillance_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page))  # check surveillance button redirect to surveillance.
 
         # --- SET THE "ALL CAMERA" PAGE AS A DEFAULT PAGE WHEN SELECTING THE SURVEILLANCE PAGE--- #
         self.surveillance_frame.setCurrentWidget(self.allCamera_page)
@@ -268,6 +280,10 @@ class mainPage(QMainWindow):
         self.camera3_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera3_page))
         self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
+
+        #gallery
+        
+
 
         #go to displayProfile
         self.displayProfile()
@@ -394,6 +410,7 @@ class mainPage(QMainWindow):
         self.faceMaskOnly_radioButton.clicked.connect(self.fmOnly)
         self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
         self.facemaskFaceshield_radioButton.clicked.connect(self.both)
+        self.sortButton.clicked.connect(self.selectDate)
 
         # buttons to display camera
         # self.camera1_button.clicked.connect(self.load)
@@ -693,6 +710,39 @@ class mainPage(QMainWindow):
             self.detectionChoice_label.setText("")
         self.displayProfile()
 
+    def selectDate(self):
+        year = self.comboYear.currentText()
+        month = self.comboMonth.currentText()
+        day = self.comboDate.currentText()
+        violationType = self.comboClasses.currentText()
+        dateSelected = year+"-"+month+"-"+day
+        print(dateSelected, violationType)
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if violationType == "All":
+            mycursor = mydb.cursor()
+            query = "SELECT filename FROM violators WHERE '" + dateSelected + "' LIKE date(detection_date)"
+            mycursor.execute(query)
+            result = mycursor.fetchall()
+            filenames = [list(i) for i in result]
+            print(filenames)
+
+        else:
+            mycursor = mydb.cursor()
+            query = "SELECT filename FROM violators WHERE '" + dateSelected +"' LIKE date(detection_date) AND '" + violationType + "' LIKE violation"
+            mycursor.execute(query)
+            result = mycursor.fetchall()
+            filenames = [list(i) for i in result]
+            print(filenames)
+
+
+
 # class Thread(QThread):
 #     changePixmap = pyqtSignal(QImage)
 
@@ -803,4 +853,5 @@ color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);
 app=QApplication(sys.argv)
 loginWindow=mainPage()
 loginWindow.show()
+app.setWindowIcon(QtGui.QIcon('chip_icon_normal.png'))
 app.exec_() #-- window execution --#

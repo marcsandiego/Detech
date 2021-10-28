@@ -334,7 +334,7 @@ QPushButton{
 }</string>
          </property>
          <property name="text">
-          <string> Settings</string>
+          <string> Settings      </string>
          </property>
          <property name="icon">
           <iconset resource="detechRs.qrc">
@@ -640,9 +640,9 @@ QPushButton{
         <widget class="QPushButton" name="changePass_button">
          <property name="geometry">
           <rect>
-           <x>760</x>
+           <x>750</x>
            <y>570</y>
-           <width>151</width>
+           <width>161</width>
            <height>28</height>
           </rect>
          </property>
@@ -664,9 +664,9 @@ color: rgb(45, 158, 236);</string>
         <widget class="QPushButton" name="editProfile_button">
          <property name="geometry">
           <rect>
-           <x>870</x>
+           <x>860</x>
            <y>50</y>
-           <width>31</width>
+           <width>41</width>
            <height>24</height>
           </rect>
          </property>
@@ -708,7 +708,7 @@ color: rgb(45, 158, 236);</string>
           <rect>
            <x>40</x>
            <y>30</y>
-           <width>481</width>
+           <width>711</width>
            <height>41</height>
           </rect>
          </property>
@@ -740,7 +740,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="editUser_page">
           <widget class="QLabel" name="label_46">
@@ -3004,8 +3004,8 @@ QPushButton:focus{
         <widget class="QComboBox" name="comboClasses">
          <property name="geometry">
           <rect>
-           <x>590</x>
-           <y>500</y>
+           <x>300</x>
+           <y>190</y>
            <width>291</width>
            <height>31</height>
           </rect>
@@ -3021,7 +3021,11 @@ QPushButton:focus{
          <property name="styleSheet">
           <string notr="true">QComboBox{
 
-border-radius: 10px;
+background-color:rgb(207, 207, 207);
+}
+
+QListView
+{
 background-color:rgb(207, 207, 207);
 }
 </string>
@@ -3096,10 +3100,10 @@ color: rgb(255, 255, 255)</string>
         <widget class="QLabel" name="label_31">
          <property name="geometry">
           <rect>
-           <x>590</x>
+           <x>0</x>
            <y>160</y>
            <width>151</width>
-           <height>21</height>
+           <height>20</height>
           </rect>
          </property>
          <property name="font">
@@ -3121,8 +3125,8 @@ color: rgb(255, 255, 255)</string>
         <widget class="QLabel" name="label_32">
          <property name="geometry">
           <rect>
-           <x>590</x>
-           <y>460</y>
+           <x>300</x>
+           <y>160</y>
            <width>181</width>
            <height>21</height>
           </rect>
@@ -3143,35 +3147,169 @@ color: rgb(255, 255, 255)</string>
           <string>Select a specific violation:</string>
          </property>
         </widget>
-        <widget class="QCalendarWidget" name="calendarWidget">
+        <widget class="QComboBox" name="comboYear">
          <property name="geometry">
           <rect>
-           <x>590</x>
-           <y>200</y>
-           <width>381</width>
-           <height>241</height>
+           <x>0</x>
+           <y>190</y>
+           <width>81</width>
+           <height>31</height>
           </rect>
          </property>
          <property name="font">
           <font>
            <family>Roboto</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">QComboBox{
+
+background-color:rgb(207, 207, 207);
+}
+
+QListView
+{
+background-color:rgb(207, 207, 207);
+}
+</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboMonth">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>190</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{
+
+background-color:rgb(207, 207, 207);
+}
+
+QListView
+{
+background-color:rgb(207, 207, 207);
+}
+</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboDate">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>190</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{
+
+background-color:rgb(207, 207, 207);
+}
+
+QListView
+{
+background-color:rgb(207, 207, 207);
+}
+</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="sortButton">
+         <property name="geometry">
+          <rect>
+           <x>620</x>
+           <y>190</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(16, 91, 151, 255), stop:1 rgba(44, 156, 234, 255));
+color: white;
+border-radius: 20px;
+}
+
+QPushButton:hover {
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 rgb(119, 88, 127), stop: 1 rgb(28, 96, 255)
+        );
+    }
+
+QPushButton:pressed {
+    border-style: inset;
+    background: qradialgradient(
+        cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+        radius: 1.35, stop: 0 rgb(17, 21, 255), stop: 1 #ddd
+        );
+    }</string>
+         </property>
+         <property name="text">
+          <string>Sort</string>
+         </property>
+         <property name="icon">
+          <iconset resource="detechRs.qrc">
+           <normaloff>:/images/images/ri_login-circle-fill.png</normaloff>:/images/images/ri_login-circle-fill.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
         <widget class="QScrollArea" name="scrollArea">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>150</y>
-           <width>581</width>
-           <height>581</height>
+           <x>7</x>
+           <y>231</y>
+           <width>971</width>
+           <height>501</height>
           </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>50</verstretch>
+          </sizepolicy>
          </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
@@ -3181,73 +3319,13 @@ color: rgb(255, 255, 255)</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>558</width>
-            <height>579</height>
+            <width>952</width>
+            <height>499</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="3" column="1">
-            <widget class="QLabel" name="label_33">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="label_25">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="label_17">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="label_21">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_26">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_15">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="label_37">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="label_16">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_18">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
+           <item row="0" column="0">
+            <layout class="QGridLayout" name="gridLayout_4"/>
            </item>
           </layout>
          </widget>
@@ -4066,7 +4144,7 @@ background-color:None;
           </rect>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="cctvAvailableConnect_page">
           <widget class="QLabel" name="label_80">
@@ -4216,8 +4294,8 @@ QPushButton:pressed {
           <widget class="QPushButton" name="continueConnectIP_button">
            <property name="geometry">
             <rect>
-             <x>420</x>
-             <y>250</y>
+             <x>410</x>
+             <y>330</y>
              <width>151</width>
              <height>51</height>
             </rect>
@@ -4292,7 +4370,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 		r
            <property name="geometry">
             <rect>
              <x>240</x>
-             <y>160</y>
+             <y>240</y>
              <width>511</width>
              <height>41</height>
             </rect>
@@ -4318,7 +4396,7 @@ background: None;
            <property name="geometry">
             <rect>
              <x>240</x>
-             <y>200</y>
+             <y>280</y>
              <width>511</width>
              <height>41</height>
             </rect>
@@ -4568,7 +4646,7 @@ QPushButton:focus{
        <property name="geometry">
         <rect>
          <x>1050</x>
-         <y>30</y>
+         <y>50</y>
          <width>181</width>
          <height>31</height>
         </rect>
@@ -4582,7 +4660,7 @@ QPushButton:focus{
         <string notr="true">color: rgb(255, 255, 255)</string>
        </property>
        <property name="text">
-        <string>(Time label)</string>
+        <string>(Date label)</string>
        </property>
       </widget>
       <widget class="QLabel" name="welcom_label">
@@ -4647,13 +4725,14 @@ QLineEdit:focus{
        <property name="geometry">
         <rect>
          <x>1030</x>
-         <y>732</y>
-         <width>121</width>
+         <y>730</y>
+         <width>111</width>
          <height>21</height>
         </rect>
        </property>
        <property name="font">
         <font>
+         <family>Roboto</family>
          <pointsize>9</pointsize>
          <weight>75</weight>
          <italic>false</italic>
@@ -5179,15 +5258,16 @@ QLineEdit:focus{
       <widget class="QPushButton" name="loginHere">
        <property name="geometry">
         <rect>
-         <x>350</x>
+         <x>360</x>
          <y>770</y>
          <width>91</width>
-         <height>20</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>Roboto</family>
+         <pointsize>9</pointsize>
          <weight>75</weight>
          <bold>true</bold>
          <underline>true</underline>
@@ -5356,7 +5436,7 @@ QLineEdit:focus{
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>190</x>
          <y>770</y>
          <width>171</width>
          <height>20</height>
@@ -5480,12 +5560,13 @@ QLineEdit:focus{
         <rect>
          <x>160</x>
          <y>120</y>
-         <width>311</width>
+         <width>321</width>
          <height>41</height>
         </rect>
        </property>
        <property name="font">
         <font>
+         <family>Roboto</family>
          <pointsize>20</pointsize>
          <weight>75</weight>
          <bold>true</bold>
@@ -5500,6 +5581,9 @@ QLineEdit:focus{
        </property>
        <property name="text">
         <string>Account Registration</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
       <widget class="QLabel" name="labelNameError">
@@ -5685,7 +5769,7 @@ QLineEdit:focus{
       <widget class="QLabel" name="label_12">
        <property name="geometry">
         <rect>
-         <x>710</x>
+         <x>700</x>
          <y>510</y>
          <width>481</width>
          <height>41</height>
@@ -5693,6 +5777,7 @@ QLineEdit:focus{
        </property>
        <property name="font">
         <font>
+         <family>Roboto</family>
          <pointsize>15</pointsize>
          <weight>75</weight>
          <bold>true</bold>

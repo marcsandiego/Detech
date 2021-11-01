@@ -1,7 +1,7 @@
 import sys
 import re
 from PyQt5 import QtWidgets, QtGui, QtCore
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox, QComboBox
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox, QComboBox, QVBoxLayout, QHBoxLayout
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
@@ -14,7 +14,7 @@ from threading import Timer
 import schedule
 import time
 from yolov5 import detechYolo
-from PyQt5.QtWidgets import  QWidget, QLabel, QApplication
+from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QThread, Qt, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import *
 import cv2
@@ -28,6 +28,7 @@ class mainPage(QMainWindow):
     activeCam = 0
     detections = []
     classes = None
+    filenames = []
 
     def __init__(self):
         super(mainPage, self).__init__()
@@ -281,8 +282,9 @@ class mainPage(QMainWindow):
         self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
 
-        #gallery
-        
+
+
+
 
 
         #go to displayProfile
@@ -732,6 +734,8 @@ class mainPage(QMainWindow):
             result = mycursor.fetchall()
             filenames = [list(i) for i in result]
             print(filenames)
+            number_of_images = len(filenames)
+            print(number_of_images)
 
         else:
             mycursor = mydb.cursor()
@@ -739,8 +743,31 @@ class mainPage(QMainWindow):
             mycursor.execute(query)
             result = mycursor.fetchall()
             filenames = [list(i) for i in result]
-            print(filenames)
+            print(*filenames)
+            number_of_images = len(filenames)
+            print(number_of_images)
 
+        #layout == vbox
+
+
+        self.widget = QWidget()
+        #self.vbox = QVBoxLayout()
+        #self.hbox = QHBoxLayout()
+        self.formLayout = QFormLayout()
+
+        for i in range(number_of_images):
+            object = QLabel("IMAGEs")
+            filepath = str(filenames[i])[2:-2]
+            print(filepath)
+            #pixmap = QPixmap(nows)
+            object.setPixmap(QPixmap(filepath))
+            self.formLayout.addRow(object)
+
+        self.widget.setLayout(self.formLayout)
+        self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scroll.setWidgetResizable(True)
+        self.scroll.setWidget(self.widget)
 
 
 # class Thread(QThread):

@@ -3290,44 +3290,33 @@ QPushButton:pressed {
           </size>
          </property>
         </widget>
-        <widget class="QScrollArea" name="scrollArea">
+        <widget class="QScrollArea" name="scroll">
          <property name="geometry">
           <rect>
-           <x>7</x>
-           <y>231</y>
-           <width>971</width>
+           <x>0</x>
+           <y>230</y>
+           <width>981</width>
            <height>501</height>
           </rect>
          </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
            <horstretch>0</horstretch>
-           <verstretch>50</verstretch>
+           <verstretch>0</verstretch>
           </sizepolicy>
-         </property>
-         <property name="verticalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOn</enum>
-         </property>
-         <property name="horizontalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOff</enum>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
          </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+         <widget class="QWidget" name="scrollAreaWidgetContents_3">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>952</width>
+            <width>979</width>
             <height>499</height>
            </rect>
           </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_4"/>
-           </item>
-          </layout>
          </widget>
         </widget>
        </widget>

@@ -743,25 +743,45 @@ class mainPage(QMainWindow):
             mycursor.execute(query)
             result = mycursor.fetchall()
             filenames = [list(i) for i in result]
-            print(*filenames)
+            print(filenames)
             number_of_images = len(filenames)
             print(number_of_images)
-
-        #layout == vbox
-
 
         self.widget = QWidget()
         #self.vbox = QVBoxLayout()
         #self.hbox = QHBoxLayout()
         self.formLayout = QFormLayout()
-
-        for i in range(number_of_images):
-            object = QLabel("IMAGEs")
-            filepath = str(filenames[i])[2:-2]
-            print(filepath)
-            #pixmap = QPixmap(nows)
-            object.setPixmap(QPixmap(filepath))
-            self.formLayout.addRow(object)
+        count = 0
+        if number_of_images % 2 == 0:
+            while count < (number_of_images):
+                object = QLabel("left")
+                object2 = QLabel("right")
+                filepath = str(filenames[count])[2:-2]
+                print(filepath)
+                object.setPixmap(QPixmap(filepath))
+                count += 1
+                print(count)
+                filepath2 = str(filenames[count])[2:-2]
+                print(filepath2)
+                object2.setPixmap(QPixmap(filepath2))
+                count += 1
+                print(count)
+                self.formLayout.addRow(object, object2)
+        else:
+            while count < (number_of_images)-1:
+                object = QLabel("left")
+                object2 = QLabel("right")
+                filepath = str(filenames[count])[2:-2]
+                print(filepath)
+                object.setPixmap(QPixmap(filepath))
+                count += 1
+                print(count)
+                filepath2 = str(filenames[count])[2:-2]
+                print(filepath2)
+                object2.setPixmap(QPixmap(filepath2))
+                count += 1
+                print(count)
+                self.formLayout.addRow(object, object2)
 
         self.widget.setLayout(self.formLayout)
         self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)

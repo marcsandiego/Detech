@@ -709,6 +709,9 @@ class mainPage(QMainWindow):
         mydb.commit()
 
         #delete in file folder
+        dir = 'violators'
+        for file in os.scandir(dir):
+            os.remove(file.path)
 
 
 

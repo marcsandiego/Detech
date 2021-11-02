@@ -5,7 +5,6 @@
       <change afterPath="$PROJECT_DIR$/yolov5/best.pt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainPage_UI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage_UI.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yolov5" beforeDir="false" afterPath="$PROJECT_DIR$/yolov5" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +149,8 @@
       <workItem from="1635764168804" duration="15862000" />
       <workItem from="1635795134709" duration="3014000" />
       <workItem from="1635799987180" duration="1180000" />
-      <workItem from="1635864217721" duration="2272000" />
+      <workItem from="1635864217721" duration="2564000" />
+      <workItem from="1635868999148" duration="33000" />
     </task>
     <task id="LOCAL-00001" summary="printttt">
       <created>1630762123894</created>

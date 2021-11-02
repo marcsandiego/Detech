@@ -394,7 +394,7 @@ QPushButton{
         </rect>
        </property>
        <property name="currentIndex">
-        <number>4</number>
+        <number>5</number>
        </property>
        <widget class="QWidget" name="profile_page">
         <widget class="QLabel" name="rectangle_frame_2">
@@ -3624,7 +3624,7 @@ background-color:None;
 }</string>
          </property>
          <property name="text">
-          <string>Settings on your save captured photos</string>
+          <string>Deleting all saved images of violators</string>
          </property>
         </widget>
         <widget class="QLabel" name="dataHistorySettings_label">
@@ -3655,7 +3655,7 @@ background-color:None;
 }</string>
          </property>
          <property name="text">
-          <string>Data History Settings</string>
+          <string>Delete Data History</string>
          </property>
         </widget>
        </widget>

@@ -1,5 +1,6 @@
 import sys
 import re
+import os
 from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox, QComboBox, QVBoxLayout, QHBoxLayout
 from PyQt5.QtGui import QPixmap
@@ -408,6 +409,7 @@ class mainPage(QMainWindow):
         self.saveCity_button.clicked.connect(self.changeCity)
         self.saveCountry_button.clicked.connect(self.changeCountry)
         self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
+        self.dataHistorySetting_button.clicked.connect(self.showDialogDelete)
         self.logoutAccount_button.clicked.connect(self.showDialogLogout)
         self.faceMaskOnly_radioButton.clicked.connect(self.fmOnly)
         self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
@@ -676,11 +678,39 @@ class mainPage(QMainWindow):
         msgBox.setText("Are you sure you want to logout?")
         msgBox.setWindowTitle("Confirm Exit")
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
-
         returnValue = msgBox.exec()
         if returnValue == QMessageBox.Yes:
             print('OK clicked')
             sys.exit()
+
+    def showDialogDelete(self):
+        msgBoxDel = QMessageBox()
+        msgBoxDel.setIcon(QMessageBox.Warning)
+        msgBoxDel.setText("Are you sure you want to delete all saved images?")
+        msgBoxDel.setWindowTitle("Delete Data History")
+        msgBoxDel.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
+        returnValue = msgBoxDel.exec()
+        if returnValue == QMessageBox.Yes:
+            self.deleteAll()
+
+    def deleteAll(self):
+        # delete in database
+        print("magdelete")
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        mycursor = mydb.cursor()
+        query = "DELETE FROM violators"
+        mycursor.execute(query)
+        mydb.commit()
+
+        #delete in file folder
+
+
 
     def fmOnly(self):
         if self.faceMaskOnly_radioButton.isChecked():
@@ -748,39 +778,41 @@ class mainPage(QMainWindow):
             print(number_of_images)
 
         self.widget = QWidget()
-        #self.vbox = QVBoxLayout()
-        #self.hbox = QHBoxLayout()
         self.formLayout = QFormLayout()
         count = 0
         if number_of_images % 2 == 0:
             while count < (number_of_images):
                 object = QLabel("left")
-                object2 = QLabel("right")
                 filepath = str(filenames[count])[2:-2]
-                print(filepath)
                 object.setPixmap(QPixmap(filepath))
+                object.setFixedSize(465, 465)
+                object.setScaledContents(True)
                 count += 1
-                print(count)
+
+                object2 = QLabel("right")
                 filepath2 = str(filenames[count])[2:-2]
-                print(filepath2)
                 object2.setPixmap(QPixmap(filepath2))
+                object2.setFixedSize(465, 465)
+                object2.setScaledContents(True)
                 count += 1
-                print(count)
+
                 self.formLayout.addRow(object, object2)
         else:
             while count < (number_of_images)-1:
                 object = QLabel("left")
-                object2 = QLabel("right")
                 filepath = str(filenames[count])[2:-2]
-                print(filepath)
                 object.setPixmap(QPixmap(filepath))
+                object.setFixedSize(465, 465)
+                object.setScaledContents(True)
                 count += 1
-                print(count)
+
+                object2 = QLabel("right")
                 filepath2 = str(filenames[count])[2:-2]
-                print(filepath2)
                 object2.setPixmap(QPixmap(filepath2))
+                object2.setFixedSize(465, 465)
+                object2.setScaledContents(True)
                 count += 1
-                print(count)
+
                 self.formLayout.addRow(object, object2)
 
         self.widget.setLayout(self.formLayout)

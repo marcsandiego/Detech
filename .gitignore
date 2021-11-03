@@ -14,6 +14,7 @@
 *.jpg
 *.mp4
 best.pt
+*.pt
 
 .idea/
 .idea/workspace.xml

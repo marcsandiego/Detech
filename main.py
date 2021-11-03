@@ -34,6 +34,7 @@ class mainPage(QMainWindow):
     def __init__(self):
         super(mainPage, self).__init__()
         # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
+        self.selectedClass = 0
         self.loadMain()
 
     def loadMain(self):
@@ -283,11 +284,6 @@ class mainPage(QMainWindow):
         self.camera4_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.camera4_page))
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
 
-
-
-
-
-
         #go to displayProfile
         self.displayProfile()
 
@@ -314,7 +310,7 @@ class mainPage(QMainWindow):
                 self.connectedCameraOutput_label.clear()
             else:
                 # self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
-                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
+                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
                 print("Success!")
                 self.label_27.setStyleSheet("background-color: green")
                 self.label_27.setText("Connected IP: " +str(url))
@@ -719,7 +715,8 @@ class mainPage(QMainWindow):
         if self.faceMaskOnly_radioButton.isChecked():
             self.detectionChoice_label.setText("Face Mask Only")
             pixmap = QPixmap('images/fmonly.png')
-            self.classes = [1,3]
+            self.classes = [1,2,3]
+            self.selectedClass = 1
             self.pictureDetectionSample_label.setPixmap(pixmap)
         else:
             self.detectionChoice_label.setText("")
@@ -730,6 +727,7 @@ class mainPage(QMainWindow):
             self.detectionChoice_label.setText("Face Shield Only")
             pixmap = QPixmap('images/fsonly.png')
             self.classes = [2,3]
+            self.selectedClass = 2
             self.pictureDetectionSample_label.setPixmap(pixmap)
         else:
             self.detectionChoice_label.setText("")
@@ -740,6 +738,7 @@ class mainPage(QMainWindow):
             self.detectionChoice_label.setText("Face Mask and Face Shield")
             pixmap = QPixmap('images/both.png')
             self.classes = [0, 1, 2, 3]
+            self.selectedClass = 0
             self.pictureDetectionSample_label.setPixmap(pixmap)
         else:
             self.detectionChoice_label.setText("")

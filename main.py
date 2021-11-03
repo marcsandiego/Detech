@@ -1,7 +1,8 @@
 import sys
 import re
+import os
 from PyQt5 import QtWidgets, QtGui, QtCore
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QMessageBox, QComboBox, QVBoxLayout, QHBoxLayout
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
@@ -14,9 +15,9 @@ from threading import Timer
 import schedule
 import time
 from yolov5 import detechYolo
-from PyQt5.QtWidgets import  QWidget, QLabel, QApplication
+from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QThread, Qt, pyqtSignal, pyqtSlot
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import *
 import cv2
 import threading
 
@@ -24,24 +25,25 @@ import threading
 #https://www.youtube.com/watch?v=NrijKenny3Y
 
 #--CLASS CREATED THAT WILL LOAD THE UI FILE
-class Login(QMainWindow):
+class mainPage(QMainWindow):
+    activeCam = 0
+    detections = []
+    classes = None
+    filenames = []
+
     def __init__(self):
-        super().__init__()
+        super(mainPage, self).__init__()
         # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
-        self.setFixedWidth(1190)  # -- setting the fixed window size in width --#
-        self.setFixedHeight(782)  # -- setting the fixed window size in height--#
+        self.loadMain()
 
-        #ewan ko ginawa neto parang naging variable lang ni mainPage
-        self.mainWindow = mainPage()
-        self.openApp()
+    def loadMain(self):
+        loadUi("mainPage_UI.ui", self)
+        # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
+        self.mainWidget.setCurrentWidget(self.loginPage)
 
-    def openApp(self):
-        # --- a code once the login button clicked, will call the loginFunction ---#
-        loadUi("login_UI.ui", self)
         self.loginButton.clicked.connect(self.loginFunction)
         self.registerButton.clicked.connect(self.registerUi)
 
-        # -- Created a function called "loginFunction" --#
     def loginFunction(self):
         lgUserLine = self.lgUserLine.text().title()  # -- Getting the textbox context lgUserline --#
         lgPassLine = self.lgPassLine.text()  # -- Getting the textbox context lgPassline --#
@@ -83,17 +85,13 @@ class Login(QMainWindow):
                 self.lgPassLine.setText("")
                 self.lgUserLine.setStyleSheet(incorrectInput)
                 self.lgPassLine.setStyleSheet(incorrectInput)
-
-            else: #call mainPage function
-                self.passingInformation()
-
+            else:#pasok na sa app
+                self.loadMainApp()
 
     def registerUi(self):
-        loadUi("register_UI.ui", self)
-        self.setFixedWidth(1190)  # -- setting the fixed window size in width --#
-        self.setFixedHeight(782)  # -- setting the fixed window size in height--#
-        self.registerButton.clicked.connect(self.registerFunction)
-        self.loginHere.clicked.connect(self.openApp) #should go back to the first function!!!
+        self.mainWidget.setCurrentWidget(self.registerPage)
+        self.registeredButton.clicked.connect(self.registerFunction)
+        self.loginHere.clicked.connect(self.loadMain) #should go back to the first function!!!
 
     def registerFunction(self):
         count = 0
@@ -207,77 +205,73 @@ class Login(QMainWindow):
             value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine, confirmPasswordRegLine)
             mycursor.execute(insert, value)
             mydb.commit()
-            self.openApp()
+            self.loadMain()
 
-
-    def passingInformation(self):
-        self.mainWindow.userDisplayLabel.setText(self.lgUserLine.text())
-        self.mainWindow.displayingInformation()
-        self.mainWindow.displayProfile()
-
-class mainPage(QMainWindow):
-    activeCam = 0
-    detections = []
-    classes = None
-
-    def __init__(self):
-        super(mainPage, self).__init__()
-        # --- FROM THE IMPORT PYQT5.UIC IMPORT LOADUI---##
-        loadUi("mainPage_UI.ui",self)
-        #self.setFixedWidth(1596)
-        #self.setFixedHeight(882)
-
-        self.cameraWidgets = [[self.camera1_label, self.allCam1_label],
-        [self.camera2_label, self.allCam2_label],
-        [self.camera3_label, self.allCam3_label],
-        [self.camera4_label, self.allCam4_label],]
-
-        # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
+    def loadMainApp(self):
+        self.userDisplayLabel.setText(self.lgUserLine.text())
+        self.mainWidget.setCurrentWidget(self.mainMenu_page)
         self.stackedWidget.setCurrentWidget(self.profile_page)
 
+        self.cameraWidgets = [[self.camera1_label, self.allCam1_label],
+                              [self.camera2_label, self.allCam2_label],
+                              [self.camera3_label, self.allCam3_label],
+                              [self.camera4_label, self.allCam4_label], ]
 
         # date and time = need to improve the time, should be running
         dateTime = datetime.datetime.now()
         self.dateDisplay_label.setText('%s/%s/%s' % (dateTime.month, dateTime.day, dateTime.year))
-        self.timeDisplay_label.setText('%s:%s:%s' % (dateTime.hour, dateTime.minute, dateTime.second))
+
+        # --- DATA HISTORY PAGE ---#
+        self.comboClasses.addItems(['All', 'Without Both', 'Facemask Only', 'Faceshield Only'])
+        # --- YEAR ---#
+        self.comboYear.addItems(
+            [('%s' % (dateTime.year)), '2021', '2022', '2023', '2024', '2025', '2026', '2077', '2028', '2029', '2030'])
+        # --- MONTHS --- #
+        self.comboMonth.addItems(
+            [('%s' % (dateTime.month)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'])
+        # --- DATES --- #
+        self.comboDate.addItems(
+            [('%s' % (dateTime.day)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13',
+             '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+             '31'])
 
         # --- CODED BUTTONS IN ABLE TO SELECT A CERTAIN STACKED WIDGET PAGE --- #
-        self.profileButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # Profile button to Profile page
-        self.surveillanceButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page)) # Surveillance Button to Surveillance page
-        self.dataHistoryButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.dataHistory_page)) # Data history button to Data history page
-        self.settingsButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) # settings button to settings page
+        self.profileButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page))  # Profile button to Profile page
+        self.surveillanceButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page))  # Surveillance Button to Surveillance page
+        self.dataHistoryButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.dataHistory_page))  # Data history button to Data history page
+        self.settingsButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page))  # settings button to settings page
 
-        #--- PROFILE EDIT PAGE ---#
-        self.editProfile_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.editProfile_page)) # Edit profile button to edit profile
+        # --- PROFILE EDIT PAGE ---#
+        self.editProfile_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.editProfile_page))  # Edit profile button to edit profile
         self.editProfile_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editUser_page))
-        self.editProfileBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page)) # -- CANCEL BUTTON --#
+        self.editProfileBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.profile_page))  # -- CANCEL BUTTON --#
 
-        #--- PROFILE EDIT STACKED WIDGETS ---#
+        # --- PROFILE EDIT STACKED WIDGETS ---#
 
         self.editUser_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editUser_page))
         self.editNameOwner_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editNameOwner_page))
         self.editStoreName_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editStoreName_page))
-        self.editStoreType_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editStoreType_page))
+        self.editStoreType_button.clicked.connect(lambda : self.editProfileWidget.setCurrentWidget(self.editStoreType_page))
         self.editAddress_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editAddress_page))
         self.editCity_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editCity_page))
         self.editCountry_button.clicked.connect(lambda: self.editProfileWidget.setCurrentWidget(self.editCountry_page))
 
+        # --- SETTINGS PAGE WIDGETS ---#
+        self.detectionSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.detectionSetup_page))  # detection setup button from settings to detection setup page
+        self.setupCCTV_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(
+        self.setupCCTV_page))  # setup cctv button from setings to setup cctv page
 
-        #--- SETTINGS PAGE WIDGETS ---#
-        self.detectionSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.detectionSetup_page)) #detection setup button from settings to detection setup page
-        self.setupCCTV_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.setupCCTV_page)) #setup cctv button from setings to setup cctv page
-
-        #--- DETECTION SETUP PAGE BUTTONS ---#
-        self.dtSetupBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) #-- BACK BUTTON DETECTION SETUP, RETURNS TO SETTINGS PAGE ---#
+        # --- DETECTION SETUP PAGE BUTTONS ---#
+        self.dtSetupBack_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page))  # -- BACK BUTTON DETECTION SETUP, RETURNS TO SETTINGS PAGE ---#
 
         # --- SET THE PROFILE PAGE AS A DEFAULT PAGE AFTER LOGGING IN --- #
         self.setupCCTV_widget.setCurrentWidget(self.cctvAvailableConnect_page)
 
         # --- setupCCTV widgets ---#
-        self.cancelSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page)) #cancel setup cctv button, returns to setting page
-        self.connectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.connectIP_page)) #connect IP button to connect IP page
-        self.continueConnectIP_button.clicked.connect(self.addCamera) # continue to connect ip to cinnection view surveillance sucesss
-        self.checkSurveillance_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page)) #check surveillance button redirect to surveillance.
+        self.cancelSetup_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page))  # cancel setup cctv button, returns to setting page
+        self.connectIP_button.clicked.connect(lambda: self.setupCCTV_widget.setCurrentWidget(self.connectIP_page))  # connect IP button to connect IP page
+        self.continueConnectIP_button.clicked.connect(self.addCamera)  # continue to connect ip to cinnection view surveillance sucesss
+        self.checkSurveillance_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.surveillance_page))  # check surveillance button redirect to surveillance.
 
         # --- SET THE "ALL CAMERA" PAGE AS A DEFAULT PAGE WHEN SELECTING THE SURVEILLANCE PAGE--- #
         self.surveillance_frame.setCurrentWidget(self.allCamera_page)
@@ -290,6 +284,11 @@ class mainPage(QMainWindow):
         self.allCamera_button.clicked.connect(lambda: self.surveillance_frame.setCurrentWidget(self.allCamera_page))
 
 
+
+
+
+
+        #go to displayProfile
         self.displayProfile()
 
     # def closeEvent(self, *args, **kwargs):
@@ -369,6 +368,7 @@ class mainPage(QMainWindow):
     def displayProfile(self):
         # Display profile
         username1 = self.userDisplayLabel.text()
+        self.userDisplayLabel.setText(username1)
         self.editUsernameField.setText(username1)
         self.editUserLabel.setText("")
 
@@ -409,10 +409,13 @@ class mainPage(QMainWindow):
         self.saveCity_button.clicked.connect(self.changeCity)
         self.saveCountry_button.clicked.connect(self.changeCountry)
         self.changePass_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.changePass_page))  # change password button to change password page
+        self.dataHistorySetting_button.clicked.connect(self.showDialogDelete)
         self.logoutAccount_button.clicked.connect(self.showDialogLogout)
         self.faceMaskOnly_radioButton.clicked.connect(self.fmOnly)
         self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
         self.facemaskFaceshield_radioButton.clicked.connect(self.both)
+        self.sortButton.clicked.connect(self.selectDate)
+
         # buttons to display camera
         # self.camera1_button.clicked.connect(self.load)
         # self.surveillanceButton.clicked.connect(self.load)
@@ -675,11 +678,42 @@ class mainPage(QMainWindow):
         msgBox.setText("Are you sure you want to logout?")
         msgBox.setWindowTitle("Confirm Exit")
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
-
         returnValue = msgBox.exec()
         if returnValue == QMessageBox.Yes:
             print('OK clicked')
             sys.exit()
+
+    def showDialogDelete(self):
+        msgBoxDel = QMessageBox()
+        msgBoxDel.setIcon(QMessageBox.Warning)
+        msgBoxDel.setText("Are you sure you want to delete all saved images?")
+        msgBoxDel.setWindowTitle("Delete Data History")
+        msgBoxDel.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
+        returnValue = msgBoxDel.exec()
+        if returnValue == QMessageBox.Yes:
+            self.deleteAll()
+
+    def deleteAll(self):
+        # delete in database
+        print("magdelete")
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        mycursor = mydb.cursor()
+        query = "DELETE FROM violators"
+        mycursor.execute(query)
+        mydb.commit()
+
+        #delete in file folder
+        dir = 'violators'
+        for file in os.scandir(dir):
+            os.remove(file.path)
+
+
 
     def fmOnly(self):
         if self.faceMaskOnly_radioButton.isChecked():
@@ -711,6 +745,86 @@ class mainPage(QMainWindow):
             self.detectionChoice_label.setText("")
         self.displayProfile()
 
+    def selectDate(self):
+        year = self.comboYear.currentText()
+        month = self.comboMonth.currentText()
+        day = self.comboDate.currentText()
+        violationType = self.comboClasses.currentText()
+        dateSelected = year+"-"+month+"-"+day
+        print(dateSelected, violationType)
+
+        mydb = mc.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="detech"
+        )
+
+        if violationType == "All":
+            mycursor = mydb.cursor()
+            query = "SELECT filename FROM violators WHERE '" + dateSelected + "' LIKE date(detection_date)"
+            mycursor.execute(query)
+            result = mycursor.fetchall()
+            filenames = [list(i) for i in result]
+            print(filenames)
+            number_of_images = len(filenames)
+            print(number_of_images)
+
+        else:
+            mycursor = mydb.cursor()
+            query = "SELECT filename FROM violators WHERE '" + dateSelected +"' LIKE date(detection_date) AND '" + violationType + "' LIKE violation"
+            mycursor.execute(query)
+            result = mycursor.fetchall()
+            filenames = [list(i) for i in result]
+            print(filenames)
+            number_of_images = len(filenames)
+            print(number_of_images)
+
+        self.widget = QWidget()
+        self.formLayout = QFormLayout()
+        count = 0
+        if number_of_images % 2 == 0:
+            while count < (number_of_images):
+                object = QLabel("left")
+                filepath = str(filenames[count])[2:-2]
+                object.setPixmap(QPixmap(filepath))
+                object.setFixedSize(465, 465)
+                object.setScaledContents(True)
+                count += 1
+
+                object2 = QLabel("right")
+                filepath2 = str(filenames[count])[2:-2]
+                object2.setPixmap(QPixmap(filepath2))
+                object2.setFixedSize(465, 465)
+                object2.setScaledContents(True)
+                count += 1
+
+                self.formLayout.addRow(object, object2)
+        else:
+            while count < (number_of_images)-1:
+                object = QLabel("left")
+                filepath = str(filenames[count])[2:-2]
+                object.setPixmap(QPixmap(filepath))
+                object.setFixedSize(465, 465)
+                object.setScaledContents(True)
+                count += 1
+
+                object2 = QLabel("right")
+                filepath2 = str(filenames[count])[2:-2]
+                object2.setPixmap(QPixmap(filepath2))
+                object2.setFixedSize(465, 465)
+                object2.setScaledContents(True)
+                count += 1
+
+                self.formLayout.addRow(object, object2)
+
+        self.widget.setLayout(self.formLayout)
+        self.scroll.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scroll.setWidgetResizable(True)
+        self.scroll.setWidget(self.widget)
+
+
 # class Thread(QThread):
 #     changePixmap = pyqtSignal(QImage)
 
@@ -729,6 +843,7 @@ class mainPage(QMainWindow):
 
 
 # Class that contains camera informations, detections, and methods
+
 class Camera:
     def __init__(self, url, detech=detechYolo.Detech(), widget=None, name=None) -> None:
         self.url = url
@@ -737,6 +852,7 @@ class Camera:
         self.name = name
         self.frameWorker = threading.Thread(target=self.setDisplay, daemon=True)
         pass
+
 
     def start(self):
         self.detech.startInference()
@@ -763,8 +879,6 @@ class Camera:
             else:
                 print("No display")
             cv2.waitKey(300)
-
-
 
 #variables for stylesheet
 
@@ -819,8 +933,7 @@ color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);
 #--- LAUNCHING THE APPLICATION ---#
 
 app=QApplication(sys.argv)
-loginWindow=Login()
-widget=QtWidgets.QStackedWidget()
-widget.addWidget(loginWindow) #-- displays all design widgets of the UI Window --#
-widget.show()
+loginWindow=mainPage()
+loginWindow.show()
+app.setWindowIcon(QtGui.QIcon('chip_icon_normal.png'))
 app.exec_() #-- window execution --#

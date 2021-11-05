@@ -220,7 +220,7 @@ class mainPage(QMainWindow):
 
         # date and time = need to improve the time, should be running
         dateTime = datetime.datetime.now()
-        self.dateDisplay_label.setText('%s/%s/%s' % (dateTime.month, dateTime.day, dateTime.year))
+        self.dateDisplay_label.setText('%02d/%02d/%s' % (dateTime.month, dateTime.day, dateTime.year))
 
         # --- DATA HISTORY PAGE ---#
         self.comboClasses.addItems(['All', 'Without Both', 'Facemask Only', 'Faceshield Only'])
@@ -229,10 +229,9 @@ class mainPage(QMainWindow):
             [('%s' % (dateTime.year)), '2021', '2022', '2023', '2024', '2025', '2026', '2077', '2028', '2029', '2030'])
         # --- MONTHS --- #
         self.comboMonth.addItems(
-            [('%s' % (dateTime.month)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'])
+            [('%02d' % (dateTime.month)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'])
         # --- DATES --- #
-        self.comboDate.addItems(
-            [('%s' % (dateTime.day)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13',
+        self.comboDate.addItems([('%02d' % (dateTime.day)), '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13',
              '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
              '31'])
 
@@ -800,7 +799,8 @@ class mainPage(QMainWindow):
 
                 self.formLayout.addRow(object, object2)
         else:
-            while count < (number_of_images)-1:
+            #pag odd dito
+            while count < (number_of_images):
                 object = QLabel("left")
                 filepath = str(filenames[count])[2:-2]
                 object.setPixmap(QPixmap(filepath))
@@ -808,12 +808,16 @@ class mainPage(QMainWindow):
                 object.setScaledContents(True)
                 count += 1
 
-                object2 = QLabel("right")
-                filepath2 = str(filenames[count])[2:-2]
-                object2.setPixmap(QPixmap(filepath2))
-                object2.setFixedSize(465, 465)
-                object2.setScaledContents(True)
-                count += 1
+                if count <= (number_of_images)-1:
+                    object2 = QLabel("right")
+                    filepath2 = str(filenames[count])[2:-2]
+                    object2.setPixmap(QPixmap(filepath2))
+                    object2.setFixedSize(465, 465)
+                    object2.setScaledContents(True)
+                    count += 1
+                else:
+                    object2 = QLabel()
+                    object2.setFixedSize(465, 465)
 
                 self.formLayout.addRow(object, object2)
 

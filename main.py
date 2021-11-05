@@ -87,6 +87,8 @@ class mainPage(QMainWindow):
                 self.lgUserLine.setStyleSheet(incorrectInput)
                 self.lgPassLine.setStyleSheet(incorrectInput)
             else:#pasok na sa app
+                self.user_id = result[0]
+                print(self.user_id)
                 self.loadMainApp()
 
     def registerUi(self):
@@ -202,8 +204,8 @@ class mainPage(QMainWindow):
         #save to database if all conditions are passed!
         if count == 5:
             mycursor = mydb.cursor()
-            insert = "INSERT INTO users (name, username, email, password, confirm_password) VALUES (%s, %s, %s, %s, %s)"
-            value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine, confirmPasswordRegLine)
+            insert = "INSERT INTO users (name, username, email, password) VALUES (%s, %s, %s, %s)"
+            value = (nameRegLine, usernameRegLine, emailRegLine, passwordRegLine)
             mycursor.execute(insert, value)
             mydb.commit()
             self.loadMain()
@@ -309,7 +311,7 @@ class mainPage(QMainWindow):
                 self.connectedCameraOutput_label.clear()
             else:
                 # self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
-                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
+                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass, user_id=self.user_id), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
                 print("Success!")
                 self.label_27.setStyleSheet("background-color: green")
                 self.label_27.setText("Connected IP: " +str(url))
@@ -380,13 +382,13 @@ class mainPage(QMainWindow):
         result = mycursor.fetchall()
 
         for row in result:
-            self.nameDisplay_label.setText(row[0])
+            self.nameDisplay_label.setText(row[1])
             self.nameStore_label.setText(row[5])
             self.typeStore_label.setText(row[6])
             self.storeAddDisplay_label.setText(row[7])
             self.cityDisplay_label.setText(row[8])
             self.countryDisplay_label.setText(row[9])
-            self.editOwnerField.setText(row[0])
+            self.editOwnerField.setText(row[1])
             self.editStoreNameField.setText(row[5])
             self.editStoreTypeField.setText(row[6])
             self.editAddressField.setText(row[7])
@@ -658,8 +660,8 @@ class mainPage(QMainWindow):
 
         if count == 2:
             mycursor = mydb.cursor()
-            query = "UPDATE users SET password = %s , confirm_password = %s  WHERE username = %s"
-            value = (newPass, newPass, username1)
+            query = "UPDATE users SET password = %s  WHERE username = %s"
+            value = (newPass, username1)
             mycursor.execute(query, value)
             mydb.commit()
             self.oldPassLabel.setText("")
@@ -760,7 +762,7 @@ class mainPage(QMainWindow):
 
         if violationType == "All":
             mycursor = mydb.cursor()
-            query = "SELECT filename FROM violators WHERE '" + dateSelected + "' LIKE date(detection_date)"
+            query = "SELECT filename FROM violators WHERE '" + dateSelected + f"' LIKE date(detection_date) AND {self.user_id} LIKE user_id"
             mycursor.execute(query)
             result = mycursor.fetchall()
             filenames = [list(i) for i in result]
@@ -770,7 +772,7 @@ class mainPage(QMainWindow):
 
         else:
             mycursor = mydb.cursor()
-            query = "SELECT filename FROM violators WHERE '" + dateSelected +"' LIKE date(detection_date) AND '" + violationType + "' LIKE violation"
+            query = "SELECT filename FROM violators WHERE '" + dateSelected +"' LIKE date(detection_date) AND '" + violationType + f"' LIKE violation AND {self.user_id} LIKE user_id"
             mycursor.execute(query)
             result = mycursor.fetchall()
             filenames = [list(i) for i in result]

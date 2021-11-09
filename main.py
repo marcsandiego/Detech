@@ -872,7 +872,7 @@ class Camera:
     def setDisplay(self):
         while True:
             if self.detech.isDetecting:
-                print("Changing Display")
+                # print("Changing Display")
                 frame = self.detech.frame
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 QImg = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)

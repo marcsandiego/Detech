@@ -394,7 +394,7 @@ QPushButton{
         </rect>
        </property>
        <property name="currentIndex">
-        <number>5</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="profile_page">
         <widget class="QLabel" name="rectangle_frame_2">
@@ -740,7 +740,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="editUser_page">
           <widget class="QLabel" name="label_46">
@@ -2848,7 +2848,7 @@ QPushButton:focus{
           </rect>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="camera1_page">
           <widget class="QLabel" name="camera1_label">
@@ -2862,11 +2862,11 @@ QPushButton:focus{
            </property>
            <property name="font">
             <font>
-             <pointsize>30</pointsize>
+             <pointsize>34</pointsize>
             </font>
            </property>
            <property name="text">
-            <string notr="true"/>
+            <string notr="true">CAMERA 1 OUTPUT</string>
            </property>
           </widget>
          </widget>
@@ -2902,7 +2902,7 @@ QPushButton:focus{
            </property>
            <property name="font">
             <font>
-             <pointsize>32</pointsize>
+             <pointsize>34</pointsize>
             </font>
            </property>
            <property name="text">
@@ -2922,7 +2922,7 @@ QPushButton:focus{
            </property>
            <property name="font">
             <font>
-             <pointsize>28</pointsize>
+             <pointsize>34</pointsize>
             </font>
            </property>
            <property name="text">
@@ -5547,9 +5547,9 @@ QLineEdit:focus{
       <widget class="QLabel" name="accountReg">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>0</x>
          <y>120</y>
-         <width>321</width>
+         <width>621</width>
          <height>41</height>
         </rect>
        </property>
@@ -5736,7 +5736,7 @@ QLineEdit:focus{
       <widget class="QLabel" name="label_13">
        <property name="geometry">
         <rect>
-         <x>770</x>
+         <x>750</x>
          <y>310</y>
          <width>371</width>
          <height>181</height>
@@ -5758,9 +5758,9 @@ QLineEdit:focus{
       <widget class="QLabel" name="label_12">
        <property name="geometry">
         <rect>
-         <x>700</x>
+         <x>630</x>
          <y>510</y>
-         <width>481</width>
+         <width>621</width>
          <height>41</height>
         </rect>
        </property>
@@ -5777,7 +5777,10 @@ QLineEdit:focus{
 color: rgb(255, 255, 255)</string>
        </property>
        <property name="text">
-        <string>DETECH: Stop and Prevent from COVID-19</string>
+        <string>DETECH: Stop and Prevent COVID-19</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>

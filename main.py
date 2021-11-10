@@ -701,14 +701,22 @@ class mainPage(QMainWindow):
         )
 
         mycursor = mydb.cursor()
-        query = "DELETE FROM violators"
+        query = f"SELECT * FROM violators WHERE {self.user_id} LIKE user_id"
+        mycursor.execute(query)
+        result = mycursor.fetchall()
+        for row in result:
+            print(f"Removed {row}")
+            os.remove(row[5])
+
+        mycursor = mydb.cursor()
+        query = f"DELETE FROM violators WHERE {self.user_id} LIKE user_id"
         mycursor.execute(query)
         mydb.commit()
 
         #delete in file folder
-        dir = 'violators'
-        for file in os.scandir(dir):
-            os.remove(file.path)
+        # dir = 'violators'
+        # for file in os.scandir(dir):
+        #     os.remove(file.path)
 
 
 

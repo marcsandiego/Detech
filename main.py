@@ -311,7 +311,7 @@ class mainPage(QMainWindow):
                 self.connectedCameraOutput_label.clear()
             else:
                 # self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
-                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass, user_id=self.user_id), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
+                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModelS.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass, user_id=self.user_id), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
                 print("Success!")
                 self.label_27.setStyleSheet("background-color: green")
                 self.label_27.setText("Connected IP: " +str(url))

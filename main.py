@@ -288,10 +288,6 @@ class mainPage(QMainWindow):
         #go to displayProfile
         self.displayProfile()
 
-    # def closeEvent(self, *args, **kwargs):
-    #     super(QMainWindow, self).closeEvent(*args, **kwargs)
-    #     self.stopDetection()
-
     # Add Camera method
     def addCamera(self):
         url = str(self.IPaddress_Line.text())
@@ -311,7 +307,7 @@ class mainPage(QMainWindow):
                 self.connectedCameraOutput_label.clear()
             else:
                 # self.detections[url] = detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV", self.classes)
-                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModelS.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass, user_id=self.user_id), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
+                self.detections.insert(self.activeCam,Camera(url, detechYolo.Detech("DetechModel.pt", url, 640, "cpu", "CCTV",  classes=self.classes, selectedClass=self.selectedClass, user_id=self.user_id), self.cameraWidgets[self.activeCam], str(self.activeCam+1)))
                 print("Success!")
                 self.label_27.setStyleSheet("background-color: green")
                 self.label_27.setText("Connected IP: " +str(url))
@@ -337,27 +333,10 @@ class mainPage(QMainWindow):
                 self.activeCam += 1
                 self.setupCCTV_widget.setCurrentWidget(self.cctvConnectedView_page)
 
-
-    # def startDetection(self, det):
-    #     det.loadModel()
-    #     det.loadData()
-    #     det.startInference()
-
     def stopDetection(self):
         for detection in self.detections:
             detection.stop()
-        print("Stopped")
-
-    # def displayDetection(self, url):
-    #     while True:
-    #         frame = self.detections[url].frame
-    #         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    #         QImg = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
-    #         pixMap = QPixmap.fromImage(QImg)
-    #         pixMap = pixMap.scaled(416,640, Qt.KeepAspectRatio)
-    #         self.camera1_label.setPixmap(pixMap)
-    #         time.sleep(1)     
-
+        print("Stopped")   
 
     def displayingInformation(self):
         self.show()
@@ -412,21 +391,6 @@ class mainPage(QMainWindow):
         self.faceShieldOnly_radioButton.clicked.connect(self.fsOnly)
         self.facemaskFaceshield_radioButton.clicked.connect(self.both)
         self.sortButton.clicked.connect(self.selectDate)
-
-        # buttons to display camera
-        # self.camera1_button.clicked.connect(self.load)
-        # self.surveillanceButton.clicked.connect(self.load)
-
-    # def load(self):
-    #     th = Thread(self)
-    #     th.changePixmap.connect(self.setImage)
-    #     th.start()
-    #     self.show()
-
-    # def setImage(self, image):
-    #     self.camera1_label.setPixmap(QPixmap.fromImage(image))
-    #     self.allCam1_label.setPixmap(QPixmap.fromImage(image))
-
 
     def changeUsername(self):
         username1 = self.userDisplayLabel.text()
@@ -713,13 +677,6 @@ class mainPage(QMainWindow):
         mycursor.execute(query)
         mydb.commit()
 
-        #delete in file folder
-        # dir = 'violators'
-        # for file in os.scandir(dir):
-        #     os.remove(file.path)
-
-
-
     def fmOnly(self):
         if self.faceMaskOnly_radioButton.isChecked():
             self.detectionChoice_label.setText("Face Mask Only")
@@ -866,7 +823,6 @@ class Camera:
         self.frameWorker = threading.Thread(target=self.setDisplay, daemon=True)
         pass
 
-
     def start(self):
         self.detech.startInference()
         print("Displaying results in 5 secs")
@@ -941,7 +897,6 @@ background-color: rgba(19, 24, 42, 1);
 background-color: rgba(19, 24, 42, 1); border-radius: 8px;\                                                         
 color: rgb(255, 255, 255); border: 2px solid rgb(250, 95, 85);
 """
-
 
 #--- LAUNCHING THE APPLICATION ---#
 
